@@ -14,6 +14,11 @@ body {
     overflow: hidden;
 }
 
+.container-v {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .header {
     display: flex;
@@ -41,7 +46,6 @@ body {
     /* background-color: darkred; */
     background-image: url('images/temp-bg.png');
     height: 85vh;
-    
     justify-content: center;
     align-items: center;
 }
@@ -55,21 +59,30 @@ body {
     text-shadow: 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white;   
 }
 
+.controller {
+    height: 4vh;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.demo {
+    padding-top: 2vh;
+}
+
 .demo a {
     
-    position: absolute;
-    bottom: 2.5vh;
-    right: 4vh;
     z-index: 2;
     display: flex;
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
     color: black;
-    font : normal 400 0.8em/1 'Josefin Sans', sans-serif;
-    letter-spacing: .1em;
+    font : normal 400 1em/1 ;
+
     text-decoration: none;
     transition: opacity .3s;
   }
+
   .demo a:hover {
     opacity: .5;
   }
@@ -78,6 +91,7 @@ body {
 #scroll-button a {
     padding-top: 0px;
   }
+
 #scroll-button a span {
     width: 0.5em;
     height: 0.5em;
@@ -114,4 +128,32 @@ body {
 }
 }
   
-  
+#projects {
+    padding: 0 10vw 0 10vw
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.section-title {
+    width:100%;
+    text-align: center;
+}
+
+.project-card {
+    margin: 10px;
+    width: 400px;
+    height: 200px;
+    background-color: gray;
+}
+
+.skill-card {
+    margin: 10px;
+    width: 200px;
+    height: 400px;
+    background-color: gray;
+}
