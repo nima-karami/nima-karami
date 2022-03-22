@@ -24,11 +24,11 @@ body {
     display: flex;
     justify-content: space-between;
     height: 3vh;
-    padding-bottom: 2vh;
+    padding-bottom: 1.5vh;
 }
 
 .logo {
-    height: 3vh;
+    height: 3.5vh;
     width:auto;
 
 }
@@ -36,6 +36,17 @@ body {
 .nav-bar ul{
     list-style-type: none;
     gap: 0.1em;
+    font-size: 0.9em;
+}
+
+.nav-link {
+    text-decoration: none;
+    color:black;
+}
+
+.nav-link:hover {
+    
+    font-weight: bold;
 }
 
 /* .nav-bar li{
@@ -61,6 +72,7 @@ body {
 
 .controller {
     height: 4vh;
+    font-size:0.9em;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -84,7 +96,7 @@ body {
   }
 
   .demo a:hover {
-    opacity: .5;
+    font-weight: bold;
   }
   
 
@@ -95,7 +107,7 @@ body {
 #scroll-button a span {
     width: 0.5em;
     height: 0.5em;
-    margin-left: 1em;
+    margin-left: 0.6em;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
     -webkit-transform: rotate(-45deg);
@@ -110,7 +122,7 @@ body {
     -webkit-transform: rotate(-45deg) translate(0, 0);
 }
 20% {
-    -webkit-transform: rotate(-45deg) translate(-10px, 10px);
+    -webkit-transform: rotate(-45deg) translate(-5px, 5px);
 }
 40% {
     -webkit-transform: rotate(-45deg) translate(0, 0);
@@ -121,7 +133,7 @@ body {
     transform: rotate(-45deg) translate(0, 0);
 }
 20% {
-    transform: rotate(-45deg) translate(-10px, 10px);
+    transform: rotate(-45deg) translate(-5px, 5px);
 }
 40% {
     transform: rotate(-45deg) translate(0, 0);
@@ -129,11 +141,16 @@ body {
 }
 
 #skills {
-    padding: 0 10vw 0 10vw
+    padding: 0 10vw 0 10vw;
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items:center;
 }
 
 #projects {
-    padding: 0 10vw 0 10vw
+    padding: 0 10vw 0 10vw;
+    min-height: 100vh;
 }
 
 
@@ -244,9 +261,13 @@ body {
     background-color:black;
 }
 
+.card-title {
+    margin: 1em 0 1em;
+}
+
 .card-body p {
-    font-size: 13px;
-    margin: 0 0 40px;
+    font-size: 0.8em;
+    margin: 0 0 3.2em;
 }
 
 .card-links {
@@ -255,4 +276,16 @@ body {
     display: flex;
     flex-direction: row;
     align-items: end;
+    justify-content: end;
+    
+}
+
+.card-links i{
+    font-size: 1.2em;
+    color:grey;
+    margin: 0 0 0 0.6em;
+}
+
+.card-links i:hover{
+    color:black;
 }
