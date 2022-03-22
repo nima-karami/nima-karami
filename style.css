@@ -231,6 +231,7 @@ body {
 }
 
 .tag-minimal {
+    display: inline-block;
     color: black;
     border-style: solid;
     border-color: black;
