@@ -64,11 +64,13 @@ body {
 
 .intro {
     width: 60%;
-    font-size: 8em;
+    max-height: 80%;
+    font-size: 7vw;
     text-align: center;
     color: darkgrey;
     text-shadow: 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white;   
 }
+
 
 .controller {
     height: 4vh;
@@ -305,4 +307,17 @@ body {
 
 .card-links i:hover{
     color:black;
+}
+
+
+@media screen and (max-width: 768px) {
+    .intro {
+        font-size: 10vw
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .intro {
+        font-size: 12vw
+    }
 }
