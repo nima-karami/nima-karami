@@ -160,12 +160,20 @@ body {
 }
 
 #contact {
-    min-height: 30vh;
+    min-height: 100vh;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
 }
+
+.mugshot {
+    width: 150px;
+    height: 150px;
+    margin: 0px 10px 20px 0px;
+    border-radius: 75px;
+}
+
 
 .gallery {
     display: flex;
