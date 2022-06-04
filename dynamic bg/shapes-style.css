@@ -10,13 +10,6 @@
     color:grey
 }
 
-/* .triangle-up {
-    width: 0;
-    height: 0;
-    border-left: 50% solid transparent;
-    border-right: 50% solid transparent;
-    border-bottom: 100% solid black;
-  } */
 
 /* COLOR STYLES */
 
@@ -64,56 +57,71 @@
 
 .rectangle-0 {
     background-color: rgb(51, 51, 51);
-    margin: 0%;
+    margin-top: 25%;
+    margin-bottom: 25%;
 }
 
 .rectangle-1 {
     background-color: rgb(51, 51, 51);
+    margin-left: 25%;
+    margin-right: 25%;
     
-    visibility: hidden;
 
 }
 
 .rectangle-2 {
     background-color: rgb(51, 51, 51);
-    margin: 25%;
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
 
 }
 
 .rectangle-3 {
     background-color: rgb(51, 51, 51);
-    margin: 10%;
+    margin-top: 40%;
+    margin-bottom: 40%;
+
     
 }
 
 .rectangle-4 {
     background-color: rgb(51, 51, 51);
-    margin: 40%;
+    margin-left: 40%;
+    margin-right: 40%;
 }
 
 .rectangle-5 {
     background-color: rgb(51, 51, 51);
-    margin: 15%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 .rectangle-6 {
     background-color: rgb(51, 51, 51);
-    margin: 35%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .rectangle-7 {
     background-color: rgb(51, 51, 51);
-    margin: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .rectangle-8 {
     background-color: rgb(51, 51, 51);
-    margin: 45%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 .rectangle-9 {
     background-color: rgb(51, 51, 51);
-    margin: 25%;
+    margin-top: 30%;
+    margin-bottom: 30%;
 }
 
 

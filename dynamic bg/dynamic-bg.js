@@ -8,7 +8,8 @@ var showValues = false;
 var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
-var style = 'circle';
+var styles = ['color', 'rectangle', 'circle']
+var styleIndex = 0;
 // var directions = [[]];
 
 let testMatrix = [
@@ -39,9 +40,21 @@ function reset() {
     iteration = 0;
     neighborsSizeX = 0;
     neighborsSizeY = 1;
-    // style = 'color'
+    style = styles[styleIndex];
 
     refreshGrid()
+}
+
+function changeStyle() {
+    if (styleIndex === styles.length-1 ) {
+        styleIndex = 0
+    }
+    
+    else {
+        styleIndex += 1
+    }
+
+    refreshGrid();
 }
 
 
@@ -180,7 +193,7 @@ function matrixToGrid(matrix) {
     // Generate the HTML code
     for (let i = 0; i < gridCount; i++) {
         value = valueList[i] ;
-        gridHTML += `<div id = pixel-${i} class = "grid-item ${style}-${value}"> ${shapeList[value]} </div>`;
+        gridHTML += `<div id = pixel-${i} class = "grid-item ${styles[styleIndex]}-${value}"> ${shapeList[value]} </div>`;
     }
         
     // Generate the CSS code | Column style
