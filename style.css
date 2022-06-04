@@ -57,18 +57,25 @@ body {
     /* background-color: darkred; */
     background-image: url('images/temp-bg.png');
     height: 85vh;
-    justify-content: center;
-    align-items: center;
+    
+    display: grid;
+    grid-template: 1fr / 1fr;
+    
 }
 
+.hero > * {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+  }
 
 .intro {
+    z-index: 2;
     width: 60%;
     max-height: 80%;
     font-size: 7vw;
     text-align: center;
-    color: darkgrey;
-    text-shadow: 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white;   
+    color: white;
+    /* text-shadow: 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white;    */
 }
 
 
