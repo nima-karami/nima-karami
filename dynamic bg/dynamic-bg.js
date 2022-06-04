@@ -8,7 +8,7 @@ var showValues = false;
 var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
-var styles = ['color', 'rectangle', 'circle']
+var styles = ['color', 'rectangle', 'circle', 'stripe'];
 var styleIndex = 0;
 // var directions = [[]];
 
@@ -38,7 +38,7 @@ function reset() {
     rowCount = 31; //81
     shapeCount = 4;
     iteration = 0;
-    neighborsSizeX = 0;
+    neighborsSizeX = 1;
     neighborsSizeY = 1;
     style = styles[styleIndex];
 
@@ -54,7 +54,7 @@ function changeStyle() {
         styleIndex += 1
     }
 
-    refreshGrid();
+    matrixToGrid (valuesMatrix);
 }
 
 

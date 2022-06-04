@@ -79,49 +79,53 @@
 }
 
 .rectangle-3 {
-    background-color: rgb(51, 51, 51);
-    margin-top: 40%;
-    margin-bottom: 40%;
+    background-color: rgb(105, 105, 105);
+    margin-top: 25%;
+    margin-bottom: 25%;
 
     
 }
 
 .rectangle-4 {
-    background-color: rgb(51, 51, 51);
-    margin-left: 40%;
-    margin-right: 40%;
+    background-color:  rgb(105, 105, 105);
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .rectangle-5 {
-    background-color: rgb(51, 51, 51);
-    margin-top: 10%;
-    margin-bottom: 10%;
+    background-color:  rgb(105, 105, 105);
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .rectangle-6 {
-    background-color: rgb(51, 51, 51);
-    margin-left: 10%;
-    margin-right: 10%;
+    background-color: rgb(160, 160, 160);
+    margin-top: 25%;
+    margin-bottom: 25%;
 }
 
 .rectangle-7 {
-    background-color: rgb(51, 51, 51);
-    margin-top: 10%;
-    margin-bottom: 10%;
-    margin-left: 10%;
-    margin-right: 10%;
+    background-color: rgb(160, 160, 160);
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .rectangle-8 {
-    background-color: rgb(51, 51, 51);
-    margin-left: 30%;
-    margin-right: 30%;
+    background-color: rgb(160, 160, 160);
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .rectangle-9 {
-    background-color: rgb(51, 51, 51);
-    margin-top: 30%;
-    margin-bottom: 30%;
+    background-color: rgb(219, 217, 217);
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 
@@ -188,4 +192,45 @@
     background-color: rgb(51, 51, 51);
     border-radius: 50%;
     margin: 25%;
+}
+
+
+.stripe-0 {
+    background: repeating-linear-gradient(0deg,white,white 2px,black 2px,black 4px)
+}
+
+.stripe-1 {
+    background: repeating-linear-gradient(45deg,white,white 2px,black 2px,black 4px)
+}
+
+.stripe-2 {
+    background: repeating-linear-gradient(90deg,white,white 2px,black 2px,black 4px)
+}
+
+.stripe-3 {
+    background: repeating-linear-gradient(135deg,white,white 2px,black 2px,black 4px)
+}
+
+.stripe-4 {
+    background: repeating-linear-gradient(0deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-5 {
+    background: repeating-linear-gradient(45deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-6 {
+    background: repeating-linear-gradient(90deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-7 {
+    background: repeating-linear-gradient(135deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-8 {
+    background: repeating-linear-gradient(45deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-9 {
+    background: repeating-linear-gradient(0deg,white,white 4px,black 4px,black 8px)
 }

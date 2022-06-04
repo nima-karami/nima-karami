@@ -57,10 +57,9 @@ body {
     /* background-color: darkred; */
     /* background-image: url('images/temp-bg.png'); */
     height: 85vh;
-    
     display: grid;
     grid-template: 1fr / 1fr;
-    
+    justify-items: center;  
 }
 
 .hero > * {
@@ -75,6 +74,8 @@ body {
     font-size: 7vw;
     text-align: center;
     color: white;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
     /* text-shadow: 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white;    */
 }
 
