@@ -55,7 +55,7 @@ body {
 
 .hero {
     /* background-color: darkred; */
-    background-image: url('images/temp-bg.png');
+    /* background-image: url('images/temp-bg.png'); */
     height: 85vh;
     
     display: grid;

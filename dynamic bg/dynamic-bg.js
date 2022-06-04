@@ -8,6 +8,7 @@ var showValues = false;
 var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
+var style = 'circle';
 // var directions = [[]];
 
 let testMatrix = [
@@ -34,10 +35,11 @@ var shapeList = [
 function reset() {
     columnCount = 101; //51
     rowCount = 31; //81
-    shapeCount = 9;
+    shapeCount = 4;
     iteration = 0;
-    neighborsSizeX = 1;
+    neighborsSizeX = 0;
     neighborsSizeY = 1;
+    // style = 'color'
 
     refreshGrid()
 }
@@ -178,7 +180,7 @@ function matrixToGrid(matrix) {
     // Generate the HTML code
     for (let i = 0; i < gridCount; i++) {
         value = valueList[i] ;
-        gridHTML += '<div id = pixel-'+ i + ' class="grid-item value-'+value+'">'+ shapeList[value] + '</div>';   
+        gridHTML += `<div id = pixel-${i} class = "grid-item ${style}-${value}"> ${shapeList[value]} </div>`;
     }
         
     // Generate the CSS code | Column style
@@ -298,11 +300,11 @@ function toggleValues() {
 
 // Update the control panels state info
 function updateCpState() {
-    document.getElementById("rows").innerHTML = "Rows: "+ rowCount;
-    document.getElementById("columns").innerHTML = "Columns: "+ columnCount;
-    document.getElementById("variance").innerHTML = "Variance: "+ shapeCount;
-    document.getElementById("neighborsSizeX").innerHTML = "Neighbors Size-X: "+ neighborsSizeX;
-    document.getElementById("neighborsSizeY").innerHTML = "Neighbors Size-Y: "+ neighborsSizeY;
+    // document.getElementById("rows").innerHTML = "Rows: "+ rowCount;
+    // document.getElementById("columns").innerHTML = "Columns: "+ columnCount;
+    // document.getElementById("variance").innerHTML = "Variance: "+ shapeCount;
+    // document.getElementById("neighborsSizeX").innerHTML = "Neighbors Size-X: "+ neighborsSizeX;
+    // document.getElementById("neighborsSizeY").innerHTML = "Neighbors Size-Y: "+ neighborsSizeY;
 
 }
 
