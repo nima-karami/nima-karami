@@ -8,9 +8,9 @@ var showValues = false;
 var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
-var styles = ['color', 'rectangle', 'frame', 'circle', 'stripe'];
+var styles = [ 'stripe', 'color', 'rectangle', 'frame', 'circle', 'brick'];
 var styleIndex = 0;
-// var directions = [[]];
+
 
 let testMatrix = [
     [0, 1, 0, 3, 5],
