@@ -1,0 +1,146 @@
+#test-div {
+    z-index: 1;
+    visibility: hidden;
+    /* position: absolute; */
+    opacity: 0.5;
+    /* left: calc(50vw - 8.8vh);
+    top: calc(0vw + 19vh); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    width: 100%;
+    height: 85vh;
+    
+    
+}
+
+#intro {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+
+    
+}
+
+#intro img{
+    width: 80px;
+    height: auto;
+    opacity: 0.8;
+}
+
+#control_panel {
+    position: absolute;
+    left: 25px;
+    right: auto;
+    bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#control_panel h3 {
+    margin: 0 0 1em 0;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: 6fr 1fr 1fr;
+}
+
+.button-container-2 {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.state-info {
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+}
+.button {
+    background-color: white;
+    width:20px;
+    height: 20px;
+    border-radius: 10px;
+    padding: 0.2em;
+    margin: 1px;
+    border: 1px solid black;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.text-button {
+    border: 2px solid black;
+    font-size: 0.8em;
+    margin: 1px;
+    padding: 2px 4px 2px 4px;
+    background:white;
+
+}
+
+.text-button:hover {
+    cursor: pointer;
+    color:white;
+    background:black;
+    
+}
+
+.small-text {
+    font-size: 0.7em;
+}
+
+.grid-container {
+    z-index: 1;
+    /* position: absolute; */
+    /* left: calc(50vw - 8.8vh);
+    top: calc(0vw + 19vh); */
+    width: 100%;
+    height: 85vh;
+    overflow:hidden;
+    
+
+    /* visibility: hidden; */
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto;
+    
+    /* opacity: 0.5; */
+}
+
+.grid-item {
+    /* background-color: red); */
+    display: grid;
+    grid-template-columns: auto ;
+    grid-template-rows: auto;
+    padding: auto;
+    border: 0px;
+    font-size: 0.01em;
+    text-align: center;
+    min-width: 1px;
+    min-height: 1px;
+}
+
+
+@media screen and (max-width: 425px) {
+    #control_panel {
+        left: auto;
+        right: auto;
+    }
+}

@@ -1,0 +1,299 @@
+.shape {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.visible-text {
+    visibility: visible;
+    color:grey
+}
+
+
+/* COLOR STYLES */
+
+.color-0 {
+    background-color: white;
+}
+
+.color-1 {
+    background-color: #202020;
+}
+
+.color-2 {
+    background-color: #ffc700;
+}
+
+.color-3 {
+    background-color: #ff4040;
+}
+
+.color-4 {
+    background-color: #40a3ff;
+}
+
+.color-5 {
+    background-color: orange;
+}
+
+.color-6 {
+    background-color: purple;
+}
+
+.color-7 {
+    background-color: pink;
+}
+
+.color-8 {
+    background-color: grey;
+}
+
+.color-9 {
+    background-color: red;
+}
+
+/* RECTANGLE STYLES */
+
+.rectangle-0 {
+    background-color: rgb(51, 51, 51);
+    margin-top: 25%;
+    margin-bottom: 25%;
+}
+
+.rectangle-1 {
+    background-color: rgb(51, 51, 51);
+    margin-left: 25%;
+    margin-right: 25%;
+    
+
+}
+
+.rectangle-2 {
+    background-color: rgb(51, 51, 51);
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
+
+}
+
+.rectangle-3 {
+    background-color: rgb(105, 105, 105);
+    margin-top: 25%;
+    margin-bottom: 25%;
+
+    
+}
+
+.rectangle-4 {
+    background-color:  rgb(105, 105, 105);
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.rectangle-5 {
+    background-color:  rgb(105, 105, 105);
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.rectangle-6 {
+    background-color: rgb(160, 160, 160);
+    margin-top: 25%;
+    margin-bottom: 25%;
+}
+
+.rectangle-7 {
+    background-color: rgb(160, 160, 160);
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.rectangle-8 {
+    background-color: rgb(160, 160, 160);
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.rectangle-9 {
+    background-color: rgb(219, 217, 217);
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+
+/* CIRCLE STYLES */
+
+.circle-0 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin:0%;
+}
+
+.circle-1 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin:40%;    
+
+}
+
+.circle-2 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin: 25%;
+
+}
+
+.circle-3 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin: 10%;
+    
+}
+
+.circle-4 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin: 40%;
+}
+
+.circle-5 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin: 15%;
+}
+
+.circle-6 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin: 35%;
+}
+
+.circle-7 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin: 5%;
+}
+
+.circle-8 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin: 45%;
+}
+
+.circle-9 {
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+    margin: 25%;
+}
+
+
+.stripe-0 {
+    background: repeating-linear-gradient(0deg,white,white 2px,black 2px,black 4px)
+}
+
+.stripe-1 {
+    background: repeating-linear-gradient(45deg,white,white 2px,black 2px,black 4px)
+}
+
+.stripe-2 {
+    background: repeating-linear-gradient(90deg,white,white 2px,black 2px,black 4px)
+}
+
+.stripe-3 {
+    background: repeating-linear-gradient(135deg,white,white 2px,black 2px,black 4px)
+}
+
+.stripe-4 {
+    background: repeating-linear-gradient(0deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-5 {
+    background: repeating-linear-gradient(45deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-6 {
+    background: repeating-linear-gradient(90deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-7 {
+    background: repeating-linear-gradient(135deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-8 {
+    background: repeating-linear-gradient(45deg,white,white 3px,black 3px,black 6px)
+}
+
+.stripe-9 {
+    background: repeating-linear-gradient(0deg,white,white 4px,black 4px,black 8px)
+}
+
+
+
+/* FRAME STYLES */
+
+.frame-0 {
+    border: #70D6FF solid 8px;
+    background-color: #FF70A6 ;
+}
+
+.frame-1 {
+    border: #FF70A6 solid 5px;
+    background-color: #70D6FF ;
+}
+
+.frame-2 {
+    border: #FFD670 solid 5px;
+    background-color: #FF9770;
+}
+
+.frame-3 {
+    border: #70D6FF solid 5px;
+    background-color: #FF70A6;
+}
+
+.frame-4 {
+    border: #FF70A6 solid 8px;
+    background-color: #70D6FF ;
+}
+
+.frame-5 {
+    border: #FFD670 solid 8px;
+    background-color: #FF9770;
+
+}
+
+.frame-6 {
+    border: #FF9770 solid 5px;
+    background-color: #FFD670;
+    
+
+}
+
+.frame-7 {
+    border: #FF70A6 solid 8px;
+    background-color: #70D6FF;
+    
+
+}
+
+.frame-8 {
+    border: #70D6FF solid 5px;
+    background-color: #FFD670;
+    
+
+}
+
+.frame-9 {
+    border: #FF9770 solid 8px;
+    background-color: #70D6FF ;
+    
+
+}

@@ -11,6 +11,10 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
 
+    <!-- Add dynamic background style sheets -->
+    <link rel="stylesheet" type = "text/css" href="./dynamic bg/dynamic-bg.css">
+    <link rel="stylesheet" type = "text/css" href="./dynamic bg/shapes-style.css">
+
 </head>
 <body>
     <header class="header">
@@ -30,12 +34,25 @@
     </header>
     
     <div class = "container hero">
-        <div class = "hero-background"></div>
+        <div id="my-grid" class="grid-container"></div>
+        <div id="test-div"></div>
+        
         <h1 class="intro">Hello. I'm Nima Karami, A Creative Software Developer.</h1>
     </div>
 
     <section class = "controller">
-        <span> Mutate | Shape + | Shape - | Column + | Column - | Row + | Row - | Reset</span>
+        <span>
+            <button class = "text-button"  onclick="changeStyle()">Change Style</button>
+            <button class = "text-button" id="next-gen"  onclick="nextIteration()">Mutate</button>
+            <button class = "text-button"  onclick="reset()">Reset</button>
+            <button class = "text-button"  onclick="addVariance()">Variance +</button>
+            <button class = "text-button"  onclick="removeVariance()">Variance -</button>
+            <button class = "text-button"  onclick="addColumn()">Column +</button>
+            <button class = "text-button"  onclick="removeColumn()">Column -</button>
+            <button class = "text-button"  onclick="addRow()">Row +</button>
+            <button class = "text-button"  onclick="removeRow()">Row -</button>
+        </span>
+
         <div id="scroll-button" class="demo">
             <a href ="#skills">Scroll<span></span></a>
         </div>
@@ -115,6 +132,38 @@
         <h2 class = "section-title">Projects</h2>
         <div class = "gallery">
             
+            <div class="card">
+                <div class="card-header">
+                  <img src="images/herofriends-2.jpg" alt="rover" />
+                </div>
+
+                <div class="card-body">
+
+                    <h4 class = "card-title">
+                    Hero Friends
+                    </h4>
+                    <p>
+                        Developed a database of 700+ superheroes and supervillains using React.js and REST API.
+
+                    </p>
+
+                    <div class = "card-tags">
+                        <span class="tag tag-minimal">React</span>
+                        <span class="tag tag-minimal">NPM</span>
+                        <span class="tag tag-minimal">Javascript</span>
+                        <span class="tag tag-minimal">HTML</span>
+                        <span class="tag tag-minimal">CSS</span>
+                        <span class="tag tag-minimal">REST API</span>
+                    </div>
+
+                    <div class = "card-links">
+                        <a href="https://nima-karami.github.io/herofriends/" target="_blank" ><i class="fa-solid fa-play"></i></a>
+                        <a href="https://github.com/nima-karami/herofriends" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div> 
+
+            </div>
+
             <div class="card">
                 <div class="card-header">
                   <img src="images/hiroshi-pixels-art-1.png" alt="rover" />
@@ -319,5 +368,6 @@
     
 
     <script src="script.js"></script>
+    <script src="dynamic bg/dynamic-bg.js"></script>
 </body>
 </html>
