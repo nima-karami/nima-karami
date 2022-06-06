@@ -234,3 +234,66 @@
 .stripe-9 {
     background: repeating-linear-gradient(0deg,white,white 4px,black 4px,black 8px)
 }
+
+
+
+/* FRAME STYLES */
+
+.frame-0 {
+    border: #70D6FF solid 8px;
+    background-color: #FF70A6 ;
+}
+
+.frame-1 {
+    border: #FF70A6 solid 5px;
+    background-color: #70D6FF ;
+}
+
+.frame-2 {
+    border: #FFD670 solid 5px;
+    background-color: #FF9770;
+}
+
+.frame-3 {
+    border: #70D6FF solid 5px;
+    background-color: #FF70A6;
+}
+
+.frame-4 {
+    border: #FF70A6 solid 8px;
+    background-color: #70D6FF ;
+}
+
+.frame-5 {
+    border: #FFD670 solid 8px;
+    background-color: #FF9770;
+
+}
+
+.frame-6 {
+    border: #FF9770 solid 5px;
+    background-color: #FFD670;
+    
+
+}
+
+.frame-7 {
+    border: #FF70A6 solid 8px;
+    background-color: #70D6FF;
+    
+
+}
+
+.frame-8 {
+    border: #70D6FF solid 5px;
+    background-color: #FFD670;
+    
+
+}
+
+.frame-9 {
+    border: #FF9770 solid 8px;
+    background-color: #70D6FF ;
+    
+
+}

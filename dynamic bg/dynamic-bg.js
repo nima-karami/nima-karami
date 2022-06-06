@@ -8,7 +8,7 @@ var showValues = false;
 var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
-var styles = ['color', 'rectangle', 'circle', 'stripe'];
+var styles = ['color', 'rectangle', 'frame', 'circle', 'stripe'];
 var styleIndex = 0;
 // var directions = [[]];
 
