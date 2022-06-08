@@ -108,9 +108,6 @@
 
 .grid-container {
     z-index: 1;
-    /* position: absolute; */
-    /* left: calc(50vw - 8.8vh);
-    top: calc(0vw + 19vh); */
     width: 100%;
     height: 85vh;
     overflow:hidden;
@@ -120,7 +117,6 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: auto auto;
-    
     /* opacity: 0.5; */
 }
 
@@ -135,6 +131,7 @@
     text-align: center;
     min-width: 1px;
     min-height: 1px;
+
 }
 
 
