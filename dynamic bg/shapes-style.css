@@ -338,14 +338,14 @@
 
 .brick-1 {
     margin: -50%;
-    background-color: #f94144;
+    background-color: #f9c74f;
     border-radius: 50%;
     transform: translate(50%, 10%);
 }
 
 .brick-2 {
     margin: -25%;
-    background-color: #f9c74f;
+    background-color: #f94144;
     border-radius: 50%;
 }
 

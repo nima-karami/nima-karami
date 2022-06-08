@@ -12,6 +12,13 @@ var neighborsSizeY = 1;
 var styles = ['stripe', 'color', 'rectangle', 'frame', 'circle', 'brick'];
 var styleIndex = 0;
 
+// Repeating function
+var intervalId = window.setInterval(function () {
+    let gridContainerElement = document.querySelector('.grid-container');
+    if (autoPlay && !isOutOfViewport(gridContainerElement)) {
+            randomize(); 
+        }
+    }, 3000);
 
 let testMatrix = [
     [0, 1, 0, 3, 5],
@@ -115,10 +122,6 @@ function generateRandomMatrix (rowCount, columnCount, maxValue) {
         if (tempI >= 0 && tempJ >= 0 && tempI < rowCount && tempJ < columnCount) {
             neighbors.push( matrix[tempI][tempJ])
         }
-        //  let newI = (tempI + rowCount) % rowCount;
-         
-        //  let newJ = (tempJ  + columnCount) % columnCount;
-         
          	         
      }
 
@@ -325,10 +328,10 @@ function togglePlay() {
 }
 
 
-function randomize() {
-    console.log(getRandomInt(10, 200));
-    columnCount = getRandomInt(10, 200);
-    rowCount = getRandomInt(10, 200);
+function randomize(mutate = true) {
+    console.log(getRandomInt(20, 200));
+    columnCount = getRandomInt(20, 200);
+    rowCount = getRandomInt(20, 200);
     shapeCount = getRandomInt(1, 9);
     iteration = 0;
     neighborsSizeX = getRandomInt(0, 4);
@@ -336,12 +339,30 @@ function randomize() {
     styleIndex = getRandomInt(0, styles.length-1);
     valuesMatrix = generateRandomMatrix (rowCount, columnCount, shapeCount);
 
-    if (getRandomInt(0,1)) {
+    if (getRandomInt(0,1) && mutate) {
         valuesMatrix = nextGeneration (valuesMatrix, neighborsSizeX, neighborsSizeY);
     }
-       
+
     matrixToGrid (valuesMatrix);
     
+}
+// Check if an element is in the viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        // rect.top >= 0 &&  Enable for fully visible element
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Check if an element is completely out of the viewport
+function isOutOfViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.bottom < 0 
+    );
 }
 
 
