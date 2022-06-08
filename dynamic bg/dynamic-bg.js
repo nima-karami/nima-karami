@@ -5,10 +5,11 @@ var shapeCount = 0;
 var iteration = 0;
 const multiplier = 10;
 var showValues = false;
+var autoPlay = true;
 var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
-var styles = [ 'stripe', 'color', 'rectangle', 'frame', 'circle', 'brick'];
+var styles = ['stripe', 'color', 'rectangle', 'frame', 'circle', 'brick'];
 var styleIndex = 0;
 
 
@@ -40,7 +41,7 @@ function reset() {
     iteration = 0;
     neighborsSizeX = 1;
     neighborsSizeY = 1;
-    style = styles[styleIndex];
+    
 
     refreshGrid()
 }
@@ -59,9 +60,9 @@ function changeStyle() {
 
 
 // Generates a random integer between 0 and max
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
+function getRandomInt(min, max) { 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
 
 function generateDirections (m, n) {
     let directions = [];
@@ -90,7 +91,7 @@ function generateRandomMatrix (rowCount, columnCount, maxValue) {
     for (let i = 0; i < rowCount; i++) {
         let matrixRow = [];
         for (let j = 0; j < columnCount; j++) {
-            matrixRow[j] = getRandomInt(maxValue);
+            matrixRow[j] = getRandomInt(0, maxValue);
         }
         matrix[i] = matrixRow;
     }
@@ -310,6 +311,39 @@ function toggleValues() {
     }
     
 }
+
+function togglePlay() {
+    if (autoPlay) {
+        document.getElementById('play-button').innerHTML = 'Play';
+        autoPlay = false;
+    }
+
+    else {
+        document.getElementById('play-button').innerHTML = 'Pause';
+        autoPlay = true;
+    }
+}
+
+
+function randomize() {
+    console.log(getRandomInt(10, 200));
+    columnCount = getRandomInt(10, 200);
+    rowCount = getRandomInt(10, 200);
+    shapeCount = getRandomInt(1, 9);
+    iteration = 0;
+    neighborsSizeX = getRandomInt(0, 4);
+    neighborsSizeY = getRandomInt(0, 4);
+    styleIndex = getRandomInt(0, styles.length-1);
+    valuesMatrix = generateRandomMatrix (rowCount, columnCount, shapeCount);
+
+    if (getRandomInt(0,1)) {
+        valuesMatrix = nextGeneration (valuesMatrix, neighborsSizeX, neighborsSizeY);
+    }
+       
+    matrixToGrid (valuesMatrix);
+    
+}
+
 
 // Update the control panels state info
 function updateCpState() {
