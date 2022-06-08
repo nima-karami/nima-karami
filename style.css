@@ -96,6 +96,7 @@ body {
     
     z-index: 2;
     display: flex;
+    justify-content: center;
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
     color: black;
@@ -109,19 +110,18 @@ body {
     font-weight: bold;
   }
   
-
-#scroll-button a {
+.scroll-button a {
     padding-top: 0px;
   }
 
-#scroll-button a span {
+.scroll-button a span {
     width: 0.5em;
     height: 0.5em;
     margin-left: 0.6em;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg) translate(-2px, 2px);
+    transform: rotate(-45deg) translate(-2px, 2px);
     -webkit-animation: sdb04 2s infinite;
     animation: sdb04 2s infinite;
     box-sizing: border-box;
@@ -129,24 +129,24 @@ body {
 
 @-webkit-keyframes sdb04 {
 0% {
-    -webkit-transform: rotate(-45deg) translate(0, 0);
+    -webkit-transform: rotate(-45deg) translate(-2px, 2px);
 }
 20% {
-    -webkit-transform: rotate(-45deg) translate(-5px, 5px);
+    -webkit-transform: rotate(-45deg) translate(5px, 5px);
 }
 40% {
-    -webkit-transform: rotate(-45deg) translate(0, 0);
+    -webkit-transform: rotate(-45deg) translate(-2px, 2px);
 }
 }
 @keyframes sdb04 {
 0% {
-    transform: rotate(-45deg) translate(0, 0);
+    transform: rotate(-45deg) translate(-2px, 2px);
 }
 20% {
     transform: rotate(-45deg) translate(-5px, 5px);
 }
 40% {
-    transform: rotate(-45deg) translate(0, 0);
+    transform: rotate(-45deg) translate(-2px, 2px);
 }
 }
 
@@ -184,6 +184,7 @@ body {
 
 
 .gallery {
+    margin-bottom: 1em;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
