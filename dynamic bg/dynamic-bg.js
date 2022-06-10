@@ -42,6 +42,7 @@ var shapeList = [
     ]
 
 function reset() {
+    pausePlay();
     columnCount = 101; //51
     rowCount = 31; //81
     shapeCount = 4;
@@ -54,6 +55,7 @@ function reset() {
 }
 
 function changeStyle() {
+    pausePlay();
     if (styleIndex === styles.length-1 ) {
         styleIndex = 0
     }
@@ -220,23 +222,27 @@ function matrixToGrid(matrix) {
  // FUNCTIONS TO USE AS BUTTON ON THE PAGE 
  
  function addColumn() {
-     columnCount += multiplier;
+    pausePlay(); 
+    columnCount += multiplier;
      refreshGrid() 
  }
  
  function removeColumn() {
-     if (columnCount > 1) {
+    pausePlay(); 
+    if (columnCount > 1) {
          columnCount -= multiplier;
          refreshGrid() 
      }
  }
      
  function addRow() {
-     rowCount += multiplier;
+    pausePlay(); 
+    rowCount += multiplier;
      refreshGrid() 
  }
  
  function removeRow() {
+    pausePlay();
     if (rowCount > 1) {
         rowCount -= multiplier;
         refreshGrid() 
@@ -244,13 +250,15 @@ function matrixToGrid(matrix) {
  }
  
 function addVariance() {
-    if (shapeCount <10) {
+    pausePlay();
+    if (shapeCount <9) {
         shapeCount += 1;
         refreshGrid()
     }
 }
  
 function removeVariance() {
+    pausePlay();
     if (shapeCount > 1) {
         shapeCount -= 1;
         refreshGrid()
@@ -258,6 +266,7 @@ function removeVariance() {
 }
 
 function increaseNeighborX() {
+    pausePlay();
     if (neighborsSizeX < 10) {
         neighborsSizeX += 1;
         updateCpState()
@@ -265,6 +274,7 @@ function increaseNeighborX() {
 }
 
 function decreaseNeighborX() {
+    pausePlay();
     if (neighborsSizeX > 0) {
         neighborsSizeX -= 1;
         updateCpState()
@@ -272,6 +282,7 @@ function decreaseNeighborX() {
 }
 
 function increaseNeighborY() {
+    pausePlay();
     if (neighborsSizeY < 10) {
         neighborsSizeY += 1;
         updateCpState()
@@ -279,6 +290,7 @@ function increaseNeighborY() {
 }
 
 function decreaseNeighborY() {
+    pausePlay();
     if (neighborsSizeY > 0) {
         neighborsSizeY -= 1;
         updateCpState()
@@ -286,14 +298,12 @@ function decreaseNeighborY() {
 }
 
 
- 
 function nextIteration() {
+    pausePlay();
     iteration += 1;
     valuesMatrix = nextGeneration (valuesMatrix, neighborsSizeX, neighborsSizeY);
     matrixToGrid (valuesMatrix);
 }
- 
-
 
 function toggleValues() {
     
@@ -315,16 +325,22 @@ function toggleValues() {
     
 }
 
-function togglePlay() {
+function pausePlay() {
     if (autoPlay) {
         document.getElementById('play-button').innerHTML = 'Play <span class="tooltiptext">Randomize the dynamic background every 3 seconds</span>';
         autoPlay = false;
     }
+}
 
-    else {
+function resumePlay() {
+    if (!autoPlay) {
         document.getElementById('play-button').innerHTML = 'Pause <span class="tooltiptext">Stop the dynamic background auto-randomization</span>';
         autoPlay = true;
     }
+}
+
+function togglePlay() {
+    autoPlay ? pausePlay(): resumePlay();
 }
 
 
