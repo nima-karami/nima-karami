@@ -317,12 +317,12 @@ function toggleValues() {
 
 function togglePlay() {
     if (autoPlay) {
-        document.getElementById('play-button').innerHTML = 'Play';
+        document.getElementById('play-button').innerHTML = 'Play <span class="tooltiptext">Randomize the dynamic background every 3 seconds</span>';
         autoPlay = false;
     }
 
     else {
-        document.getElementById('play-button').innerHTML = 'Pause';
+        document.getElementById('play-button').innerHTML = 'Pause <span class="tooltiptext">Stop the dynamic background auto-randomization</span>';
         autoPlay = true;
     }
 }

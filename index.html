@@ -42,17 +42,17 @@
 
     <section class="controller">
         <span>
-            <button id="play-button" class="text-button" onclick="togglePlay()">Pause</button>
-            <button class="text-button" onclick="reset()">Reset</button>
-            <button class="text-button" onclick="randomize()">Randomize</button>
-            <button class="text-button" id="next-gen" onclick="nextIteration()">Mutate</button>
-            <button class="text-button" onclick="changeStyle()">Change Style</button>
-            <button class="text-button" onclick="addVariance()">Variance +</button>
-            <button class="text-button" onclick="removeVariance()">Variance -</button>
-            <button class="text-button" onclick="addColumn()">Column +</button>
-            <button class="text-button" onclick="removeColumn()">Column -</button>
-            <button class="text-button" onclick="addRow()">Row +</button>
-            <button class="text-button" onclick="removeRow()">Row -</button>
+            <button id="play-button" class="text-button tooltip" onclick="togglePlay()">Pause <span class="tooltiptext">Stop the dynamic background auto-randomization</span></button>
+            <button class="text-button tooltip" onclick="reset()">Reset<span class="tooltiptext">Reset the parameters to default</span></button>
+            <button class="text-button tooltip" onclick="randomize()">Randomize<span class="tooltiptext">Randomize the dynamic background</span></button>
+            <button class="text-button tooltip" id="next-gen" onclick="nextIteration()">Mutate<span class="tooltiptext">Mutate based on the most common members in a neighborhood</span></button>
+            <button class="text-button tooltip" onclick="changeStyle()">Change Style<span class="tooltiptext">Change the graphic representation of the matrix</span></button>
+            <button class="text-button tooltip" onclick="addVariance()">Variance +<span class="tooltiptext">Increase variety in the matrix</span></button>
+            <button class="text-button tooltip" onclick="removeVariance()">Variance -<span class="tooltiptext">Decrease variety in the matrix</span></button>
+            <button class="text-button tooltip" onclick="addColumn()">Column +<span class="tooltiptext">Increase the number of columns</span></button>
+            <button class="text-button tooltip" onclick="removeColumn()">Column -<span class="tooltiptext">Decrease the number of columns</span></button>
+            <button class="text-button tooltip" onclick="addRow()">Row +<span class="tooltiptext">Increase the number of rows</span></button>
+            <button class="text-button tooltip" onclick="removeRow()">Row -<span class="tooltiptext">Decrease the number of rows</span></button>
         </span>
 
         <div class="scroll-button demo">
