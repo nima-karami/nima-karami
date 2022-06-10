@@ -42,7 +42,6 @@ var shapeList = [
     ]
 
 function reset() {
-    pausePlay();
     columnCount = 101; //51
     rowCount = 31; //81
     shapeCount = 4;
@@ -186,7 +185,7 @@ function matrixToList (matrix) {
 }
  
 // Draw a grid based on the input matrix of colors 
-function matrixToGrid(matrix) {
+async function matrixToGrid(matrix) {
     let rowCount = matrix.length;
     let columnCount = matrix[0].length;
     let gridCount = columnCount*rowCount;
@@ -345,7 +344,7 @@ function togglePlay() {
 
 
 function randomize(mutate = true) {
-    console.log(getRandomInt(20, 200));
+    
     columnCount = getRandomInt(20, 200);
     rowCount = getRandomInt(20, 200);
     shapeCount = getRandomInt(1, 9);

@@ -80,15 +80,6 @@ body {
     /* text-shadow: 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white;    */
 }
 
-
-.controller {
-    height: 4vh;
-    font-size:0.9em;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .demo {
     padding-top: 2vh;
 }
@@ -334,8 +325,11 @@ body {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 600px) {
     .intro {
         font-size: 12vw
+    }
+    .demo {
+        font-size: 0.8em;
     }
 }

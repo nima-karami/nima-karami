@@ -65,6 +65,7 @@
     display: flex;
     align-items: center;
 }
+
 .button {
     background-color: white;
     width:20px;
@@ -87,19 +88,17 @@
 }
 
 .text-button {
-    border: 2px solid black;
     font-size: 0.8em;
     margin: 1px;
     padding: 2px 4px 2px 4px;
     background:white;
-
+    border: 1px solid black;
 }
 
 .text-button:hover {
     cursor: pointer;
     color:white;
-    background:black;
-    
+    background:black;   
 }
 
 /* Tooltip container */
@@ -165,10 +164,41 @@
 
 }
 
+.controller {
+    height: 4vh;
+    font-size:0.9em;
+    padding-top: 5px;
+    padding-bottom: 10px ;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-@media screen and (max-width: 425px) {
-    #control_panel {
-        left: auto;
-        right: auto;
+@media screen and (max-width: 800px) {
+    
+    .text-button {
+        border: 1px solid black;
+        font-size: 0.7em;
+        margin: 1px;
+        padding: 2px 4px 2px 4px;
+        background:white;
     }
+
+
+    .controller-buttons{
+        padding-right: 10%;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .controller-buttons{
+        padding-right: 10px;
+    }
+
+    .hide-on-small {
+        visibility: hidden;
+    }
+
+
 }
