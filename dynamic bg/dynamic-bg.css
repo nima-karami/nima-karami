@@ -187,12 +187,13 @@
 
     .controller-buttons{
         padding-right: 10%;
-        align-items: flex-start;
+        align-items: center;
     }
 }
 
 @media screen and (max-width: 600px) {
     .controller-buttons{
+        padding-top: 20px;
         padding-right: 10px;
     }
 
