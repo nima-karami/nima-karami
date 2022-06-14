@@ -11,6 +11,7 @@ body {
 .container {
     display: flex;
     justify-content: center;
+    align-items: start;
     overflow: hidden;
 }
 
@@ -23,12 +24,13 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    height: 3vh;
-    padding-bottom: 1.5vh;
+    overflow:hidden;
+    height: 3.5vh;
+    margin-bottom: 1vh;
 }
 
 .logo {
-    height: 3.5vh;
+    height: 100%;
     width:auto;
 
 }
@@ -45,14 +47,19 @@ body {
 }
 
 .nav-link:hover {
-    
     font-weight: bold;
 }
 
 
 /* Hide the link that should open and close the topnav on small screens */
 .nav-bar .icon {
-display: none;
+    display: none;
+    font-size: 1.5em;
+    color: black;
+}
+
+.nav-bar .icon:hover {
+    color: grey;
 }
 
 /* .nav-bar li{
@@ -352,16 +359,5 @@ display: none;
   
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
-    .nav-bar.responsive {position: relative;}
-    .nav-bar.responsive a.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    .topnav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
+ 
 }
