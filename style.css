@@ -35,10 +35,19 @@ body {
 
 }
 
+.nav-bar {
+    display: flex;
+    justify-content: right;
+    align-items: end;
+}
+
 .nav-bar ul{
+    margin: 0px;
     list-style-type: none;
-    gap: 0.1em;
     font-size: 0.9em;
+    gap: 0.8em;
+    display: flex;
+    justify-content: right;
 }
 
 .nav-link {
@@ -60,6 +69,10 @@ body {
 
 .nav-bar .icon:hover {
     color: grey;
+}
+
+.nav-bar .icon:active {
+    color: black;
 }
 
 /* .nav-bar li{
@@ -350,7 +363,7 @@ body {
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
-    .nav-bar li:not(:last-child) {display: none;}
+    .nav-bar ul {display: none;}
     .nav-bar a.icon {
       float: right;
       display: block;
@@ -359,5 +372,26 @@ body {
   
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
- 
+    .nav-bar.responsive ul {
+        z-index: 3;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.90);
+        position: absolute;
+        width: 50vw;
+        height: 40vh;
+        top:30vh;
+        left:25vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 1000ms;
+      }
+
+      .nav-bar.responsive li a {
+          color: white;
+          font-size: 1.5em;
+      }
+
+
 }
