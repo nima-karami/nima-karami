@@ -96,14 +96,16 @@ body {
 
 .intro {
     z-index: 2;
-    width: 60%;
+    overflow: hidden;
+    max-width: 80%;
+    min-width: 60%;
+    width: auto;
     max-height: 80%;
-    font-size: 7vw;
+    font-size: 6vw;
     text-align: center;
     color: white;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
-    /* text-shadow: 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white;    */
 }
 
 .demo {
