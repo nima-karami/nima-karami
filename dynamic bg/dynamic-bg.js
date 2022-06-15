@@ -268,7 +268,6 @@ function increaseNeighborX() {
     pausePlay();
     if (neighborsSizeX < 10) {
         neighborsSizeX += 1;
-        updateCpState()
     }
 }
 
@@ -276,7 +275,6 @@ function decreaseNeighborX() {
     pausePlay();
     if (neighborsSizeX > 0) {
         neighborsSizeX -= 1;
-        updateCpState()
     }
 }
 
@@ -284,7 +282,6 @@ function increaseNeighborY() {
     pausePlay();
     if (neighborsSizeY < 10) {
         neighborsSizeY += 1;
-        updateCpState()
     }
 }
 
@@ -292,7 +289,6 @@ function decreaseNeighborY() {
     pausePlay();
     if (neighborsSizeY > 0) {
         neighborsSizeY -= 1;
-        updateCpState()
     }
 }
 
@@ -380,22 +376,10 @@ function isOutOfViewport(element) {
     );
 }
 
-
-// Update the control panels state info
-function updateCpState() {
-    // document.getElementById("rows").innerHTML = "Rows: "+ rowCount;
-    // document.getElementById("columns").innerHTML = "Columns: "+ columnCount;
-    // document.getElementById("variance").innerHTML = "Variance: "+ shapeCount;
-    // document.getElementById("neighborsSizeX").innerHTML = "Neighbors Size-X: "+ neighborsSizeX;
-    // document.getElementById("neighborsSizeY").innerHTML = "Neighbors Size-Y: "+ neighborsSizeY;
-
-}
-
 // Generate a new matrix and reload
 function refreshGrid() {
     valuesMatrix = generateRandomMatrix (rowCount, columnCount, shapeCount);
     matrixToGrid (valuesMatrix);
-    updateCpState()
 }
 
 reset(); 

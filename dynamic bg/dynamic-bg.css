@@ -105,7 +105,6 @@
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
   }
   
   /* Tooltip text */
@@ -141,17 +140,12 @@
     width: 100%;
     height: 85vh;
     overflow:hidden;
-    
-
-    /* visibility: hidden; */
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: auto auto;
-    /* opacity: 0.5; */
 }
 
 .grid-item {
-    /* background-color: red); */
     display: grid;
     grid-template-columns: auto ;
     grid-template-rows: auto;
@@ -161,7 +155,6 @@
     text-align: center;
     min-width: 1px;
     min-height: 1px;
-
 }
 
 .controller {
@@ -175,7 +168,6 @@
 }
 
 @media screen and (max-width: 800px) {
-    
     .text-button {
         border: 1px solid black;
         font-size: 0.7em;
@@ -183,7 +175,6 @@
         padding: 2px 4px 2px 4px;
         background:white;
     }
-
 
     .controller-buttons{
         padding-right: 10%;
@@ -200,6 +191,4 @@
     .hide-on-small {
         visibility: hidden;
     }
-
-
 }
