@@ -11,7 +11,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-/* Toggle between adding and removing the "responsive" class to nav-bar when the user clicks on the icon */
+// Toggle between adding and removing the "responsive" class to nav-bar when the user clicks on the icon
 function toggleNavbar() {
     var x = document.getElementById("my-nav-bar");
     if (x.className === "nav-bar") {

@@ -1,395 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nima Karami | Software Developer</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nima Karami | Software Developer</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
 
-    <!-- Add dynamic background style sheets -->
-    <link rel="stylesheet" type="text/css" href="./dynamic bg/dynamic-bg.css">
-    <link rel="stylesheet" type="text/css" href="./dynamic bg/shapes-style.css">
+        <!-- Add dynamic background style sheets -->
+        <link rel="stylesheet" type="text/css" href="./dynamic bg/dynamic-bg.css">
+        <link rel="stylesheet" type="text/css" href="./dynamic bg/shapes-style.css">
+    </head>
 
-</head>
+    <body>
+        <header class="header">
+            <a href="https://nima-karami.github.io/"><img class="logo" src="images/Logo-dev-grey.png"></a>
 
-<body>
-    <header class="header">
-        <a href="https://nima-karami.github.io/"><img class="logo" src="images/Logo-dev-grey.png"></a>
-
-        <nav id="my-nav-bar" class="nav-bar">
-            <ul class="container">
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="images/Nima Karami_CV_20220506.pdf" target=”_blank” class="nav-link">Resume</a></li>
-                
-                <!-- <li>Dark/Bright</li> -->
-            </ul>
-            <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()"><i class="fa-solid fa-bars"></i></a>
-        </nav>
-    </header>
-
-    <div class="container hero">
-        <div id="my-grid" class="grid-container"></div>
-        <div id="test-div"></div>
-
-        <h1 class="intro">Hello. I'm Nima Karami, A Creative Software Developer.</h1>
-    </div>
-
-    <section class="controller">
-        <span class="controller-buttons">
-            <button id="play-button" class="text-button tooltip" onclick="togglePlay()">Pause <span class="tooltiptext">Stop the dynamic background auto-randomization</span></button>
-            <button class="text-button tooltip" onclick="pausePlay(); reset()">Reset<span class="tooltiptext">Reset the parameters to default</span></button>
-            <button class="text-button tooltip" onclick="pausePlay(); randomize()">Randomize<span class="tooltiptext">Randomize the dynamic background</span></button>
-            <button class="text-button tooltip" id="next-gen" onclick="nextIteration()">Mutate<span class="tooltiptext">Mutate based on the most common members in a neighborhood</span></button>
-            <button class="text-button tooltip" onclick="changeStyle()">Change Style<span class="tooltiptext">Change the graphic representation of the matrix</span></button>
-            <button class="text-button tooltip hide-on-small" onclick="addVariance()">Variance +<span class="tooltiptext">Increase variety in the matrix</span></button>
-            <button class="text-button tooltip hide-on-small" onclick="removeVariance()">Variance -<span class="tooltiptext">Decrease variety in the matrix</span></button>
-            <button class="text-button tooltip hide-on-small" onclick="addColumn()">Column +<span class="tooltiptext">Increase the number of columns</span></button>
-            <button class="text-button tooltip hide-on-small" onclick="removeColumn()">Column -<span class="tooltiptext">Decrease the number of columns</span></button>
-            <button class="text-button tooltip hide-on-small" onclick="addRow()">Row +<span class="tooltiptext">Increase the number of rows</span></button>
-            <button class="text-button tooltip hide-on-small " onclick="removeRow()">Row -<span class="tooltiptext">Decrease the number of rows</span></button>
-        </span>
-
-        <div class="scroll-button demo">
-            <a href="#skills">Scroll<span></span></a>
+            <nav id="my-nav-bar" class="nav-bar">
+                <ul class="container">
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="images/Nima Karami_CV_20220506.pdf" target=”_blank” class="nav-link">Resume</a></li>  
+                </ul>
+                <!-- Navigation bar hamburger button -->
+                <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()"><i class="fa-solid fa-bars"></i></a>
+            </nav>
+        </header>
+        
+        <div class="container hero">
+            <!-- Grid container for the dynamic background -->
+            <div id="my-grid" class="grid-container"></div>
+            <div id="test-div"></div>
+            <h1 class="intro">Hello. I'm Nima Karami, A Creative Software Developer.</h1>
         </div>
-    </section>
 
-    <section id="skills">
-        <div>
-            <h2 class="section-title">Skills</h2>
-            <div class="gallery">
+        <!-- dynamic background control panel -->
+        <section class="controller">
+            <span class="controller-buttons">
+                <button id="play-button" class="text-button tooltip" onclick="togglePlay()">Pause <span class="tooltiptext">Stop the dynamic background auto-randomization</span></button>
+                <button class="text-button tooltip" onclick="pausePlay(); reset()">Reset<span class="tooltiptext">Reset the parameters to default</span></button>
+                <button class="text-button tooltip" onclick="pausePlay(); randomize()">Randomize<span class="tooltiptext">Randomize the dynamic background</span></button>
+                <button class="text-button tooltip" id="next-gen" onclick="nextIteration()">Mutate<span class="tooltiptext">Mutate based on the most common members in a neighborhood</span></button>
+                <button class="text-button tooltip" onclick="changeStyle()">Change Style<span class="tooltiptext">Change the graphic representation of the matrix</span></button>
+                <button class="text-button tooltip hide-on-small" onclick="addVariance()">Variance +<span class="tooltiptext">Increase variety in the matrix</span></button>
+                <button class="text-button tooltip hide-on-small" onclick="removeVariance()">Variance -<span class="tooltiptext">Decrease variety in the matrix</span></button>
+                <button class="text-button tooltip hide-on-small" onclick="addColumn()">Column +<span class="tooltiptext">Increase the number of columns</span></button>
+                <button class="text-button tooltip hide-on-small" onclick="removeColumn()">Column -<span class="tooltiptext">Decrease the number of columns</span></button>
+                <button class="text-button tooltip hide-on-small" onclick="addRow()">Row +<span class="tooltiptext">Increase the number of rows</span></button>
+                <button class="text-button tooltip hide-on-small " onclick="removeRow()">Row -<span class="tooltiptext">Decrease the number of rows</span></button>
+            </span>
 
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <h4>Web Development</h4>
-                    </div>
-                    <div class="skill-card-body">
-                        <p class="tag tag-minimal">JavaScript</p>
-                        <p class="tag tag-minimal">HTML</p>
-                        <p class="tag tag-minimal">CSS</p>
-                        <p class="tag tag-minimal">React</p>
-                        <p class="tag tag-minimal">Bootstrap</p>
-                        <p class="tag tag-minimal">Node.js</p>
-                        <p class="tag tag-minimal">REST API</p>
-                        <p class="tag tag-minimal">Git</p>
-                        <p class="tag tag-minimal">Accessiblity</p>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <h4>Data Science</h4>
-                    </div>
-                    <div class="skill-card-body">
-                        <p class="tag tag-minimal">Python</p>
-                        <p class="tag tag-minimal">Jupyter</p>
-                        <p class="tag tag-minimal">Open CV</p>
-                        <p class="tag tag-minimal">Numpy</p>
-                        <p class="tag tag-minimal">Pandas</p>
-                        <p class="tag tag-minimal">Matplotlib</p>
-                        <p class="tag tag-minimal">Pillow</p>
-                        <p class="tag tag-minimal">Git</p>
-                        <p class="tag tag-minimal">PineScript</p>
-                        <p class="tag tag-minimal">Backtrader</p>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <h4>Design</h4>
-                    </div>
-                    <div class="skill-card-body">
-                        <p class="tag tag-minimal">Figma</p>
-                        <p class="tag tag-minimal">Illustrator</p>
-                        <p class="tag tag-minimal">Photoshop</p>
-                        <p class="tag tag-minimal">InDesign</p>
-                        <p class="tag tag-minimal">Premiere</p>
-                        <p class="tag tag-minimal">Rhino 3D</p>
-                        <p class="tag tag-minimal">Grasshopper 3D</p>
-                        <p class="tag tag-minimal">Revit</p>
-                        <p class="tag tag-minimal">Autocad</p>
-                    </div>
-                </div>
-            </div>
-            
             <div class="scroll-button demo">
-                <a href="#projects">Projects<span></span></a>
+                <a href="#skills">Scroll<span></span></a>
             </div>
-        </div>
+        </section>
 
-    </section>
+        <section id="skills">
+            <div>
+                <h2 class="section-title">Skills</h2>
+                <div class="gallery">
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <h4>Web Development</h4>
+                        </div>
 
-    <section id="projects">
-        <div>
-            <h2 class="section-title">Projects</h2>
-            <div class="gallery">
+                        <div class="skill-card-body">
+                            <p class="tag tag-minimal">JavaScript</p>
+                            <p class="tag tag-minimal">HTML</p>
+                            <p class="tag tag-minimal">CSS</p>
+                            <p class="tag tag-minimal">React</p>
+                            <p class="tag tag-minimal">Bootstrap</p>
+                            <p class="tag tag-minimal">Node.js</p>
+                            <p class="tag tag-minimal">REST API</p>
+                            <p class="tag tag-minimal">Git</p>
+                            <p class="tag tag-minimal">Accessiblity</p>
+                        </div>
+                    </div>
 
-                <div class="card">
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <h4>Data Science</h4>
+                        </div>
+
+                        <div class="skill-card-body">
+                            <p class="tag tag-minimal">Python</p>
+                            <p class="tag tag-minimal">Jupyter</p>
+                            <p class="tag tag-minimal">Open CV</p>
+                            <p class="tag tag-minimal">Numpy</p>
+                            <p class="tag tag-minimal">Pandas</p>
+                            <p class="tag tag-minimal">Matplotlib</p>
+                            <p class="tag tag-minimal">Pillow</p>
+                            <p class="tag tag-minimal">Git</p>
+                            <p class="tag tag-minimal">PineScript</p>
+                            <p class="tag tag-minimal">Backtrader</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <h4>Design</h4>
+                        </div>
+
+                        <div class="skill-card-body">
+                            <p class="tag tag-minimal">Figma</p>
+                            <p class="tag tag-minimal">Illustrator</p>
+                            <p class="tag tag-minimal">Photoshop</p>
+                            <p class="tag tag-minimal">InDesign</p>
+                            <p class="tag tag-minimal">Premiere</p>
+                            <p class="tag tag-minimal">Rhino 3D</p>
+                            <p class="tag tag-minimal">Grasshopper 3D</p>
+                            <p class="tag tag-minimal">Revit</p>
+                            <p class="tag tag-minimal">Autocad</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-button demo">
+                    <a href="#projects">Projects<span></span></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div>
+                <h2 class="section-title">Projects</h2>
+                <div class="gallery">
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="images/herofriends-2.jpg" alt="rover" />
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Hero Friends
+                            </h4>
+
+                            <p>
+                                Developed a database of 700+ superheroes and supervillains using React.js and REST API.
+
+                            </p>
+
+                            <div class="card-tags">
+                                <span class="tag tag-minimal">React</span>
+                                <span class="tag tag-minimal">NPM</span>
+                                <span class="tag tag-minimal">Javascript</span>
+                                <span class="tag tag-minimal">HTML</span>
+                                <span class="tag tag-minimal">CSS</span>
+                                <span class="tag tag-minimal">REST API</span>
+                            </div>
+
+                            <div class="card-links">
+                                <a href="https://nima-karami.github.io/herofriends/" target="_blank"><i
+                                        class="fa-solid fa-play"></i></a>
+                                <a href="https://github.com/nima-karami/herofriends" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="images/hiroshi-pixels-art-1.png" alt="rover" />
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Hiroshi Pixels
+                            </h4>
+
+                            <p>
+                                Designed and Engineered an interactive computer-generated art inspired by the works of
+                                Hiroshi
+                                Kawano (1925-2012), a Japanese pioneer of computer art.
+                            </p>
+
+                            <div class="card-tags">
+                                <span class="tag tag-minimal">Javascript</span>
+                                <span class="tag tag-minimal">HTML</span>
+                                <span class="tag tag-minimal">CSS</span>
+                                <span class="tag tag-minimal">DOM Manipulation</span>
+                            </div>
+
+                            <div class="card-links">
+                                <a href="https://nima-karami.github.io/Hiroshi-Pixels/" target="_blank"><i
+                                        class="fa-solid fa-play"></i></a>
+                                <a href="https://github.com/nima-karami/Hiroshi-Pixels" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="card">
                     <div class="card-header">
-                        <img src="images/herofriends-2.jpg" alt="rover" />
+                    <img src="images/maxim-hopman-fiXLQXAhCfk-unsplash.jpg" alt="rover" />
                     </div>
 
                     <div class="card-body">
 
-                        <h4 class="card-title">
-                            Hero Friends
+                        <h4 class = "card-title">
+                        Crypto Backtesting Tool
                         </h4>
                         <p>
-                            Developed a database of 700+ superheroes and supervillains using React.js and REST API.
+                            Analyzed and optimized the performance of mean-reversion trading strategy against historical data.
 
                         </p>
 
-                        <div class="card-tags">
-                            <span class="tag tag-minimal">React</span>
-                            <span class="tag tag-minimal">NPM</span>
-                            <span class="tag tag-minimal">Javascript</span>
-                            <span class="tag tag-minimal">HTML</span>
-                            <span class="tag tag-minimal">CSS</span>
+                        <div class = "card-tags">
+                            <span class="tag tag-minimal">Python</span>
                             <span class="tag tag-minimal">REST API</span>
-                        </div>
-
-                        <div class="card-links">
-                            <a href="https://nima-karami.github.io/herofriends/" target="_blank"><i
-                                    class="fa-solid fa-play"></i></a>
-                            <a href="https://github.com/nima-karami/herofriends" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <img src="images/hiroshi-pixels-art-1.png" alt="rover" />
-                    </div>
-
-                    <div class="card-body">
-
-                        <h4 class="card-title">
-                            Hiroshi Pixels
-                        </h4>
-                        <p>
-                            Designed and Engineered an interactive computer-generated art inspired by the works of
-                            Hiroshi
-                            Kawano (1925-2012), a Japanese pioneer of computer art.
-
-                        </p>
-
-                        <div class="card-tags">
-                            <span class="tag tag-minimal">Javascript</span>
-                            <span class="tag tag-minimal">HTML</span>
-                            <span class="tag tag-minimal">CSS</span>
-                            <span class="tag tag-minimal">DOM Manipulation</span>
-                        </div>
-
-                        <div class="card-links">
-                            <a href="https://nima-karami.github.io/Hiroshi-Pixels/" target="_blank"><i
-                                    class="fa-solid fa-play"></i></a>
-                            <a href="https://github.com/nima-karami/Hiroshi-Pixels" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- <div class="card">
-                <div class="card-header">
-                  <img src="images/maxim-hopman-fiXLQXAhCfk-unsplash.jpg" alt="rover" />
-                </div>
-
-                <div class="card-body">
-
-                    <h4 class = "card-title">
-                    Crypto Backtesting Tool
-                    </h4>
-                    <p>
-                        Analyzed and optimized the performance of mean-reversion trading strategy against historical data.
-
-                    </p>
-
-                    <div class = "card-tags">
-                        <span class="tag tag-minimal">Python</span>
-                        <span class="tag tag-minimal">REST API</span>
-                        <span class="tag tag-minimal">Pandas</span>
-                        <span class="tag tag-minimal">Numpy</span>
-                        <span class="tag tag-minimal">Matplotlib</span>
-                        <span class="tag tag-minimal">Seaborn</span>
-                        <span class="tag tag-minimal">Backtrader</span>
-                    </div>
-
-                    <div class = "card-links">
-                        <a href="" ><i class="fa-solid fa-play"></i></a>
-                        <a href=""><i class="fa-brands fa-github"></i></a>
-                    </div>
-                </div> 
-
-            </div> -->
-
-                <div class="card">
-                    <div class="card-header">
-                        <img src="images/Reclaiming_Construction_Waste_0.jpg" alt="rover" />
-                    </div>
-
-                    <div class="card-body">
-
-                        <h4 class="card-title">
-                            Waste-Stacked
-                        </h4>
-                        <p>
-                            Developed an autonomous system for robotic stacking of irregular components in
-                            compression-only
-                            structures.
-                        </p>
-
-                        <div class="card-tags">
-                            <span class="tag tag-minimal">Python</span>
-                            <span class="tag tag-minimal">OPEN CV</span>
-                            <span class="tag tag-minimal">Rhino 3D</span>
-                            <span class="tag tag-minimal">Grasshopper 3D</span>
-                            <span class="tag tag-minimal">PhysX</span>
-                            <span class="tag tag-minimal">3D Bin-Packing</span>
-                        </div>
-
-                        <div class="card-links">
-                            <!-- <a href="https://nima-karami.com/projects/waste-stacked/" target="_blank" ><i class="fa-solid fa-play"></i></a> -->
-                            <a href="https://uwspace.uwaterloo.ca/handle/10012/16453#:~:text=compression%2Donly%20structures-,Reclaiming%20Construction%20Waste%3A%20An%20interface%20for%20robotic%20stacking%20of,components%20in%20compression%2Donly%20structures"
-                                target="_blank"><i class="fa-solid fa-book"></i></a>
-                            <a href="https://github.com/nima-karami/Waste-Stacked" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <img src="images\Mask_2.0.jpg" alt="rover" />
-                    </div>
-
-                    <div class="card-body">
-
-                        <h4 class="card-title">
-                            Cybrid Serenade
-                        </h4>
-                        <p>
-                            Designed a pixelated wall that detects facial expressions and reacts according to the
-                            perceived
-                            emotion.
-                        </p>
-
-                        <div class="card-tags">
-                            <span class="tag tag-minimal">Python</span>
-                            <span class="tag tag-minimal">Open CV</span>
-                            <span class="tag tag-minimal">Rhino 3D</span>
-                            <span class="tag tag-minimal">Grasshopper 3D</span>
+                            <span class="tag tag-minimal">Pandas</span>
+                            <span class="tag tag-minimal">Numpy</span>
                             <span class="tag tag-minimal">Matplotlib</span>
                             <span class="tag tag-minimal">Seaborn</span>
                             <span class="tag tag-minimal">Backtrader</span>
                         </div>
 
-                        <div class="card-links">
-                            <!-- <a href="https://nima-karami.com/projects/cybrid-serenade/" target = "_blank"><i class="fa-solid fa-play"></i></a> -->
-                            <a href="https://github.com/nima-karami/Cybrid-Serenade" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
+                        <div class = "card-links">
+                            <a href="" ><i class="fa-solid fa-play"></i></a>
+                            <a href=""><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div> 
+
+                </div> -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="images/Reclaiming_Construction_Waste_0.jpg" alt="rover" />
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Waste-Stacked
+                            </h4>
+
+                            <p>
+                                Developed an autonomous system for robotic stacking of irregular components in
+                                compression-only
+                                structures.
+                            </p>
+
+                            <div class="card-tags">
+                                <span class="tag tag-minimal">Python</span>
+                                <span class="tag tag-minimal">OPEN CV</span>
+                                <span class="tag tag-minimal">Rhino 3D</span>
+                                <span class="tag tag-minimal">Grasshopper 3D</span>
+                                <span class="tag tag-minimal">PhysX</span>
+                                <span class="tag tag-minimal">3D Bin-Packing</span>
+                            </div>
+
+                            <div class="card-links">
+                                <a href="https://uwspace.uwaterloo.ca/handle/10012/16453#:~:text=compression%2Donly%20structures-,Reclaiming%20Construction%20Waste%3A%20An%20interface%20for%20robotic%20stacking%20of,components%20in%20compression%2Donly%20structures"
+                                    target="_blank"><i class="fa-solid fa-book"></i></a>
+                                <a href="https://github.com/nima-karami/Waste-Stacked" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="images\Mask_2.0.jpg" alt="rover" />
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Cybrid Serenade
+                            </h4>
+
+                            <p>
+                                Designed a pixelated wall that detects facial expressions and reacts according to the
+                                perceived
+                                emotion.
+                            </p>
+
+                            <div class="card-tags">
+                                <span class="tag tag-minimal">Python</span>
+                                <span class="tag tag-minimal">Open CV</span>
+                                <span class="tag tag-minimal">Rhino 3D</span>
+                                <span class="tag tag-minimal">Grasshopper 3D</span>
+                                <span class="tag tag-minimal">Matplotlib</span>
+                                <span class="tag tag-minimal">Seaborn</span>
+                                <span class="tag tag-minimal">Backtrader</span>
+                            </div>
+
+                            <div class="card-links">
+                                <a href="https://github.com/nima-karami/Cybrid-Serenade" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="images/The_Reef_Bricks_00.jpg" alt="rover" />
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Reef Bricks
+                            </h4>
+
+                            <p>
+                                Developed an algorithm to generate complex bio-mimetic 3D geometry by processing coral reef
+                                textures.
+                            </p>
+
+                            <div class="card-tags">
+                                <span class="tag tag-minimal">Rhino 3D</span>
+                                <span class="tag tag-minimal">Grasshopper 3D</span>
+                                <span class="tag tag-minimal">3D Printing</span>
+                            </div>
+
+                            <div class="card-links">
+                                <a href="https://github.com/nima-karami/Reef-Bricks" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="images\Rhizome_1.jpg" alt="rover" />
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Rhizome
+                            </h4>
+                            <p>
+                                Worked as part of a team to design an interactive sound and light installation.
+                            </p>
+
+                            <div class="card-tags">
+                                <span class="tag tag-minimal">C++</span>
+                                <span class="tag tag-minimal">Arduino</span>
+                                <span class="tag tag-minimal">Interaction Design</span>
+                            </div>
+
+                            <div class="card-links">
+                                <a href="https://frmlab.ca/Rhizome-1" target=”_blank”><i class="fa-solid fa-book"></i></a>
+                            </div>
+                        </div>
+                    </div>            
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <img src="images/The_Reef_Bricks_00.jpg" alt="rover" />
-                    </div>
+                <div class="scroll-button demo">
 
-                    <div class="card-body">
-
-                        <h4 class="card-title">
-                            Reef Bricks
-                        </h4>
-                        <p>
-                            Developed an algorithm to generate complex bio-mimetic 3D geometry by processing coral reef
-                            textures.
-                        </p>
-
-                        <div class="card-tags">
-                            <span class="tag tag-minimal">Rhino 3D</span>
-                            <span class="tag tag-minimal">Grasshopper 3D</span>
-                            <span class="tag tag-minimal">3D Printing</span>
-
-                        </div>
-
-                        <div class="card-links">
-                            <!-- <a href="http://nima-karami.com/projects/reef/" target="_blank" ><i class="fa-solid fa-play"></i></a> -->
-                            <a href="https://github.com/nima-karami/Reef-Bricks" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-
+                    <a href="#contact">Contact<span></span></a>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <img src="images\Rhizome_1.jpg" alt="rover" />
-                    </div>
-
-                    <div class="card-body">
-
-                        <h4 class="card-title">
-                            Rhizome
-                        </h4>
-                        <p>
-                            Worked as part of a team to design an interactive sound and light installation.
-                        </p>
-
-                        <div class="card-tags">
-                            <span class="tag tag-minimal">C++</span>
-                            <span class="tag tag-minimal">Arduino</span>
-                            <span class="tag tag-minimal">Interaction Design</span>
-                        </div>
-
-                        <div class="card-links">
-                            <a href="https://frmlab.ca/Rhizome-1" target=”_blank”><i class="fa-solid fa-book"></i></a>
-                            <!-- <a href=""><i class="fa-brands fa-github"></i></a> -->
-                        </div>
-                    </div>
-                </div>
-
-                
             </div>
 
-            <div class="scroll-button demo">
+        </section>
 
-                <a href="#contact">Contact<span></span></a>
+        <footer id="contact">
+            <img class="mugshot" src="images/mugshot.jpg">
+            <h2 class="container">Let's Connect</h2>
+            <div class="footer_links container">
+                <a href="mailto:nkarami.dev@gmail.com" target="_blank" title="email" class="social-link">Email |</a>
+                <a href="https://www.linkedin.com/in/nima-karami/" target="_blank" title="github" class="social-link">
+                    LinkedIn |</a>
+                <a href="https://github.com/nima-karami" target="_blank" title="github" class="social-link"> Github</a>
             </div>
+        </footer>
 
-        </div>
-
-    </section>
-
-
-    <footer id="contact">
-        <img class="mugshot" src="images/mugshot.jpg">
-        <h2 class="container">Let's Connect</h2>
-        <div class="footer_links container">
-            <a href="mailto:nkarami.dev@gmail.com" target="_blank" title="email" class="social-link">Email |</a>
-            <a href="https://www.linkedin.com/in/nima-karami/" target="_blank" title="github" class="social-link">
-                LinkedIn |</a>
-            <a href="https://github.com/nima-karami" target="_blank" title="github" class="social-link"> Github</a>
-        </div>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-    <script src="dynamic bg/dynamic-bg.js"></script>
-</body>
+        <!-- Load the scripts -->
+        <script src="script.js"></script>
+        <script src="dynamic bg/dynamic-bg.js"></script>
+    </body>
 
 </html>
