@@ -41,6 +41,7 @@ var shapeList = [
     '<div class ="shape">9</div>'
     ]
 
+// Reset the variables to default
 function reset() {
     columnCount = 101; //51
     rowCount = 31; //81
@@ -49,10 +50,10 @@ function reset() {
     neighborsSizeX = 1;
     neighborsSizeY = 1;
     
-
     refreshGrid()
 }
 
+// Change the graphic representation of the matrix
 function changeStyle() {
     pausePlay();
     if (styleIndex === styles.length-1 ) {
@@ -185,7 +186,7 @@ function matrixToList (matrix) {
 }
  
 // Draw a grid based on the input matrix of colors 
-async function matrixToGrid(matrix) {
+function matrixToGrid(matrix) {
     let rowCount = matrix.length;
     let columnCount = matrix[0].length;
     let gridCount = columnCount*rowCount;
