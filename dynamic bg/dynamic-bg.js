@@ -356,8 +356,8 @@ function randomize(mutate = true) {
     }
 
     matrixToGrid (valuesMatrix);
-    
 }
+
 // Check if an element is in the viewport
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
