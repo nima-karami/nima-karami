@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
 html, body {
     margin: auto;
     padding: auto;
-    font-family: "Roboto";
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -95,7 +97,8 @@ body {
     min-width: 60%;
     width: auto;
     max-height: 80%;
-    font-size: 6vw;
+    font-size: 5vw;
+    font-weight: 700;
     text-align: center;
     color: white;
     -webkit-text-stroke-width: 3px;
