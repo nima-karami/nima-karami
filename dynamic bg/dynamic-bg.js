@@ -349,16 +349,16 @@ async function randomize(mutate = true) {
     neighborsSizeX = getRandomInt(0, 4);
     neighborsSizeY = getRandomInt(0, 4);
     styleIndex = getRandomInt(0, styles.length-1);
-    console.log('before generateRandomMatrix');
+    // console.log('before generateRandomMatrix');
     valuesMatrix = await generateRandomMatrix (rowCount, columnCount, shapeCount);
 
     if (getRandomInt(0,1) && mutate) {
         valuesMatrix = nextGeneration (valuesMatrix, neighborsSizeX, neighborsSizeY);
     }   
 
-    console.log('before matrixToGrid');
+    // console.log('before matrixToGrid');
     matrixToGrid (valuesMatrix);
-    console.log('End');
+    // console.log('End');
 }
 
 // Check if an element is in the viewport
