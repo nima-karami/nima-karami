@@ -3,7 +3,7 @@ var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var columnCount = 0;
 var rowCount = 0;
-var shapeCount = 0;
+var variance = 0;
 var iteration = 0;
 const multiplier = 10;
 var showValues = false;
@@ -11,7 +11,9 @@ var autoPlay = false;
 var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
-var styles = ['stripe', 'color', 'rectangle', 'frame', 'circle', 'brick'];
+// add more styles 'stripe', 'color', , 'frame', , 'brick'
+var styles = ['rectangle', 'circle'];
+var colorArr1 = ["white", "black", "#ffc700", "#ff4040", "#40a3ff", "orange", "purple", "pink", "grey", "red"];
 var styleIndex = 0;
 
 // Repeating function
@@ -21,6 +23,8 @@ var intervalId = window.setInterval(function () {
             randomize(); 
         }
     }, 3000);
+
+window.onresize = () => {resizeCanvasToDisplaySize(c); reset()};
 
 let testMatrix = [
     [0, 1, 0, 3, 5],
@@ -43,28 +47,52 @@ var shapeList = [
     '<div class ="shape">9</div>'
     ]
 
-// Draw circle on canvas
-function drawCircle(ctx) {
-    ctx.beginPath();
-    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
-    ctx.stroke();
+// Make sure the canvas is 1:1
+function resizeCanvasToDisplaySize(canvas) {
+    // look up the size the canvas is being displayed
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    
+    // If it's resolution does not match change it
+    if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+        return true;
+    }
+    
+    return false;
 }
+
+resizeCanvasToDisplaySize(c);
+
+
+// Draw circle on canvas
+function drawFullCircle(x, y, r, color) {
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
+}
+
+
 
 function drawRect(x, y, w, h, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, w, h);
 }
 
-
+function varianceArrToColors(arr) {
+    
+}
 
 
 
 
 // Reset the variables to default
 function reset() {
-    columnCount = 101; //51
-    rowCount = 31; //81
-    shapeCount = 4;
+    columnCount = 11; //51
+    rowCount = 11; //81
+    variance = 4;
     iteration = 0;
     neighborsSizeX = 1;
     neighborsSizeY = 1;
@@ -82,7 +110,7 @@ function changeStyle() {
     else {
         styleIndex += 1
     }
-
+    
     matrixToGrid (valuesMatrix);
 }
 
@@ -205,6 +233,7 @@ function matrixToList (matrix) {
 }
  // Draw a grid based on the input matrix of colors 
 function matrixToGrid(matrix) {
+    
     let rowCount = matrix.length;
     let columnCount = matrix[0].length;
     let gridCount = columnCount*rowCount;
@@ -214,16 +243,39 @@ function matrixToGrid(matrix) {
     let pixelHeight = canvasHeight/rowCount;
     let marginTop = 2.5;
     let marginLeft = 2.5;
-    let value = 0;
     let valueList = matrixToList (matrix);
-    console.log(pixelWidth, pixelHeight)
+    let style = styles[styleIndex];
+    let color = '';
+    console.log(style);
+    console.log(canvasWidth, canvasHeight);
+    
+    // Clear canvas
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    
+    // Draw new shapes
+    for (let j = 0; j < rowCount; j++) {
+        for (let i = 0; i < columnCount; i++) {
+            
+            switch(style) {
+                case 'rectangle':
+                    color = colorArr1[valueList[i + rowCount*j]];    
+                    drawRect(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth-5, pixelHeight-5, color);
+                    break;
+                case 'circle':
+                    color = colorArr1[valueList[i + rowCount*j]];      
+                    let radius = Math.min(pixelHeight, pixelWidth)/2;
+                    drawFullCircle(radius + i * pixelWidth, radius + j * pixelHeight, radius, color);
+                    break;
+                case 'stripe':
+                    break;
+            }
+            
+            
 
-    for (let i = 0; i < columnCount; i++) {
-        for (let j = 0; j < rowCount; j++) {
-            drawRect( marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth-5, pixelHeight-5, "blue")
+            
         } 
     }
-
+    
 
 }
 
@@ -293,16 +345,16 @@ function matrixToGrid_obsolete(matrix) {
  
 function addVariance() {
     pausePlay();
-    if (shapeCount <9) {
-        shapeCount += 1;
+    if (variance <9) {
+        variance += 1;
         refreshGrid()
     }
 }
  
 function removeVariance() {
     pausePlay();
-    if (shapeCount > 1) {
-        shapeCount -= 1;
+    if (variance > 1) {
+        variance -= 1;
         refreshGrid()
     }
 }
@@ -386,13 +438,13 @@ async function randomize(mutate = true) {
     
     columnCount = getRandomInt(20, 200);
     rowCount = getRandomInt(20, 200);
-    shapeCount = getRandomInt(1, 9);
+    variance = getRandomInt(1, 9);
     iteration = 0;
     neighborsSizeX = getRandomInt(0, 4);
     neighborsSizeY = getRandomInt(0, 4);
     styleIndex = getRandomInt(0, styles.length-1);
     // console.log('before generateRandomMatrix');
-    valuesMatrix = await generateRandomMatrix (rowCount, columnCount, shapeCount);
+    valuesMatrix = await generateRandomMatrix (rowCount, columnCount, variance);
 
     if (getRandomInt(0,1) && mutate) {
         valuesMatrix = nextGeneration (valuesMatrix, neighborsSizeX, neighborsSizeY);
@@ -424,7 +476,7 @@ function isOutOfViewport(element) {
 
 // Generate a new matrix and reload
 function refreshGrid() {
-    valuesMatrix = generateRandomMatrix (rowCount, columnCount, shapeCount);
+    valuesMatrix = generateRandomMatrix (rowCount, columnCount, variance);
     matrixToGrid (valuesMatrix);
 }
 

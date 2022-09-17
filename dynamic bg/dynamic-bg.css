@@ -141,7 +141,7 @@
     height: 85vh;
     overflow:hidden;
     display: grid;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .grid-item {
