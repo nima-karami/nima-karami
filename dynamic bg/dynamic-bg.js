@@ -269,11 +269,28 @@ function matrixToGrid(matrix) {
                 case 'stripe':
                     break;
             }
-            
-            
-
-            
+                                    
         } 
+
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        var x = 0;
+        var y = 0;
+        var width = 40;
+        var height = 40;
+        var count = 5;
+        var offset = width/count;
+        ctx.strokeStyle = "#black";
+        ctx.lineWidth=2;
+        ctx.beginPath();
+
+        for (let i = 0; i < count; i++) {
+            
+            ctx.moveTo(x+i*offset+1,y);
+            ctx.lineTo(x+i*offset+1,y+height);
+
+        }
+        
+        ctx.stroke();
     }
     
 
