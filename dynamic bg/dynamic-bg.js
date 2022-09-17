@@ -1,4 +1,6 @@
 // Initiate variables
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
 var columnCount = 0;
 var rowCount = 0;
 var shapeCount = 0;
@@ -40,6 +42,23 @@ var shapeList = [
     '<div class ="shape">8</div>',
     '<div class ="shape">9</div>'
     ]
+
+// Draw circle on canvas
+function drawCircle(ctx) {
+    ctx.beginPath();
+    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    ctx.stroke();
+}
+
+function drawRect(x, y, w, h, color) {
+    ctx.fillStyle = color;
+    ctx.fillRect(x, y, w, h);
+}
+
+
+
+
+
 
 // Reset the variables to default
 function reset() {
@@ -184,9 +203,32 @@ function matrixToList (matrix) {
         }
     return list;
 }
- 
-// Draw a grid based on the input matrix of colors 
+ // Draw a grid based on the input matrix of colors 
 function matrixToGrid(matrix) {
+    let rowCount = matrix.length;
+    let columnCount = matrix[0].length;
+    let gridCount = columnCount*rowCount;
+    let canvasWidth = c.width;
+    let canvasHeight = c.height;
+    let pixelWidth = canvasWidth/columnCount;
+    let pixelHeight = canvasHeight/rowCount;
+    let marginTop = 2.5;
+    let marginLeft = 2.5;
+    let value = 0;
+    let valueList = matrixToList (matrix);
+    console.log(pixelWidth, pixelHeight)
+
+    for (let i = 0; i < columnCount; i++) {
+        for (let j = 0; j < rowCount; j++) {
+            drawRect( marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth-5, pixelHeight-5, "blue")
+        } 
+    }
+
+
+}
+
+// Draw a grid based on the input matrix of colors 
+function matrixToGrid_obsolete(matrix) {
     let rowCount = matrix.length;
     let columnCount = matrix[0].length;
     let gridCount = columnCount*rowCount;
