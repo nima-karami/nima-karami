@@ -74,11 +74,33 @@ function drawFullCircle(x, y, r, color) {
     ctx.fill();
 }
 
-
-
+// Draw rectangle on canvas
 function drawRect(x, y, w, h, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, w, h);
+}
+
+// Draw hatch on canvas, needs to be replaced with SVG 
+function drawHatch() {
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        var x = 0;
+        var y = 0;
+        var width = 40;
+        var height = 40;
+        var count = 5;
+        var offset = width/count;
+        ctx.strokeStyle = "#black";
+        ctx.lineWidth=2;
+        ctx.beginPath();
+
+        for (let i = 0; i < count; i++) {
+            
+            ctx.moveTo(x+i*offset+1,y);
+            ctx.lineTo(x+i*offset+1,y+height);
+
+        }
+        
+        ctx.stroke();
 }
 
 function varianceArrToColors(arr) {
@@ -259,12 +281,12 @@ function matrixToGrid(matrix) {
             switch(style) {
                 case 'rectangle':
                     color = colorArr1[valueList[i + rowCount*j]];    
-                    drawRect(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth-5, pixelHeight-5, color);
+                    drawRect(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, color);
                     break;
                 case 'circle':
                     color = colorArr1[valueList[i + rowCount*j]];      
                     let radius = Math.min(pixelHeight, pixelWidth)/2;
-                    drawFullCircle(radius + i * pixelWidth, radius + j * pixelHeight, radius, color);
+                    drawFullCircle(radius + i * pixelWidth, radius + j * pixelHeight, radius*0.9, color);
                     break;
                 case 'stripe':
                     break;
@@ -272,25 +294,7 @@ function matrixToGrid(matrix) {
                                     
         } 
 
-        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-        var x = 0;
-        var y = 0;
-        var width = 40;
-        var height = 40;
-        var count = 5;
-        var offset = width/count;
-        ctx.strokeStyle = "#black";
-        ctx.lineWidth=2;
-        ctx.beginPath();
-
-        for (let i = 0; i < count; i++) {
-            
-            ctx.moveTo(x+i*offset+1,y);
-            ctx.lineTo(x+i*offset+1,y+height);
-
-        }
         
-        ctx.stroke();
     }
     
 
@@ -493,6 +497,8 @@ function isOutOfViewport(element) {
 
 // Generate a new matrix and reload
 function refreshGrid() {
+    // Clear canvas
+    ctx.clearRect(0, 0, c.width, c.height);
     valuesMatrix = generateRandomMatrix (rowCount, columnCount, variance);
     matrixToGrid (valuesMatrix);
 }
