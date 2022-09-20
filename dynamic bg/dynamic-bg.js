@@ -41,20 +41,6 @@ let testMatrix = [
     [0, 1, 0, 3, 5],
 ]
 
-// Refer to shape-style.css
-var shapeList = [
-    '<div class ="shape">0</div>',
-    '<div class ="shape">1</div>',
-    '<div class ="shape">2</div>',
-    '<div class ="shape">3</div>',
-    '<div class ="shape">4</div>',
-    '<div class ="shape">5</div>',
-    '<div class ="shape">6</div>',
-    '<div class ="shape">7</div>',
-    '<div class ="shape">8</div>',
-    '<div class ="shape">9</div>'
-    ]
-
 // Make sure the canvas is 1:1
 function resizeCanvasToDisplaySize(canvas) {
     // look up the size the canvas is being displayed
@@ -313,40 +299,6 @@ function matrixToGrid(matrix) {
 
 }
 
-// Draw a grid based on the input matrix of colors 
-function matrixToGrid_obsolete(matrix) {
-    let rowCount = matrix.length;
-    let columnCount = matrix[0].length;
-    let gridCount = columnCount*rowCount;
-    let gridHTML = "";
-    let gridCSSColumns = "";
-    let gridCSSRows = "";
-    let value = 0;
-    let valueList = matrixToList (matrix);
-    
-    // Generate the HTML code
-    for (let i = 0; i < gridCount; i++) {
-        value = valueList[i] ;
-        gridHTML += `<div id = pixel-${i} class = "grid-item ${styles[styleIndex]}-${value}"> ${shapeList[value]} </div>`;
-    }
-        
-    // Generate the CSS code | Column style
-    for (let i = 0; i < columnCount; i++) {
-        gridCSSColumns += "auto ";
-    }
-
-    // Generate the CSS code | Row style
-    for (let i = 0; i < rowCount; i++) {
-        gridCSSRows += "auto ";
-    }
-        
-    // Insert the HTML and CSS codes
-    document.getElementById("my-grid").innerHTML = gridHTML;
-    document.getElementById("my-grid").style.gridTemplateColumns = gridCSSColumns;
-    document.getElementById("my-grid").style.gridTemplateRows = gridCSSRows;
-
-}
- 
  // FUNCTIONS TO USE AS BUTTON ON THE PAGE 
  
  function addColumn() {
