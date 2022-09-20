@@ -97,11 +97,11 @@ body {
     min-width: 60%;
     width: auto;
     max-height: 80%;
-    font-size: 5vw;
+    font-size: 3vw;
     font-weight: 700;
     text-align: center;
     color: white;
-    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
 }
 
