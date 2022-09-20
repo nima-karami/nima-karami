@@ -12,7 +12,7 @@ var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
 // add more styles 'stripe', 'color', , 'frame', , 'brick'
-var styles = ['rectangle', 'circle', 'hatch', 'triangle', 'gradient', 'half-circle'] ;
+var styles = ['rectangle', 'hatch', 'circle',  'triangle', 'gradient', 'half-circle', 'brick'] ;
 var styleIndex = 0;
 
 var colorArr1 = ["white", "black", "#ffc700", "#ff4040", "#40a3ff", "orange", "purple", "pink", "grey", "red"];
@@ -20,6 +20,7 @@ const hatchArr = document.getElementsByClassName('pattern-hatch');
 const triangleArr = document.getElementsByClassName('pattern-triangle');
 const gradientArr = document.getElementsByClassName('pattern-gradient');
 const halfCircleArr = document.getElementsByClassName('pattern-half-circle');
+const brickArr = document.getElementsByClassName('pattern-brick');
 
 console.log(hatchArr);
 
@@ -84,6 +85,7 @@ function drawFullCircle(x, y, r, color) {
 // Draw rectangle on canvas
 function drawRect(x, y, w, h, color) {
     ctx.fillStyle = color;
+    ctx.fillStyle = color;
     ctx.fillRect(x, y, w, h);
 }
 
@@ -106,8 +108,8 @@ function varianceArrToColors(arr) {
 
 // Reset the variables to default
 function reset() {
-    columnCount = 41; //51
-    rowCount = 21; //81
+    columnCount = 71; //51
+    rowCount = 41; //81
     variance = 4;
     iteration = 0;
     neighborsSizeX = 1;
@@ -142,7 +144,7 @@ function generateDirections (m, n) {
     let columnCount = n*2+1;
 
     for (let i = 0; i < rowCount; i++) {
-        let matrixRow = [];
+        
         for (let j = 0; j < columnCount; j++) {
             newI = i - m;
             newJ = j - n;
@@ -262,8 +264,8 @@ function matrixToGrid(matrix) {
     let valueList = matrixToList (matrix);
     let style = styles[styleIndex];
     let color = '';
-    console.log(style);
-    console.log(canvasWidth, canvasHeight);
+    console.log(matrix);
+    // console.log(canvasWidth, canvasHeight);
     
     // Clear canvas
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
@@ -275,11 +277,11 @@ function matrixToGrid(matrix) {
             
             switch(style) {
                 case 'rectangle':
-                    color = colorArr1[valueList[i + rowCount*j]];    
+                    color = colorArr1[valueList[i + columnCount*j]];    
                     drawRect(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, color);
                     break;
                 case 'circle':
-                    color = colorArr1[valueList[i + rowCount*j]];      
+                    color = colorArr1[valueList[i + columnCount*j]];      
                     let radius = Math.min(pixelHeight, pixelWidth)/2;
                     drawFullCircle(radius + i * pixelWidth, radius + j * pixelHeight, radius*0.9, color);
                     break;
@@ -298,6 +300,10 @@ function matrixToGrid(matrix) {
                 case 'half-circle':
                     let halfCircle = halfCircleArr[valueList[i + rowCount*j]];
                     drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, halfCircle);
+                    break;
+                case 'brick':
+                    let brick = brickArr[valueList[i + rowCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth+1, pixelHeight, brick);
                     break;
             }
                                     
@@ -465,17 +471,17 @@ function togglePlay() {
 }
 
 
-async function randomize(mutate = true) {
+function randomize(mutate = true) {
     
-    columnCount = getRandomInt(20, 200);
-    rowCount = getRandomInt(20, 200);
+    columnCount = getRandomInt(20, 120);
+    rowCount = getRandomInt(20, 80);
     variance = getRandomInt(1, 9);
     iteration = 0;
-    neighborsSizeX = getRandomInt(0, 4);
-    neighborsSizeY = getRandomInt(0, 4);
+    neighborsSizeX = getRandomInt(0, 3);
+    neighborsSizeY = getRandomInt(0, 3);
     styleIndex = getRandomInt(0, styles.length-1);
     // console.log('before generateRandomMatrix');
-    valuesMatrix = await generateRandomMatrix (rowCount, columnCount, variance);
+    valuesMatrix = generateRandomMatrix (rowCount, columnCount, variance);
 
     if (getRandomInt(0,1) && mutate) {
         valuesMatrix = nextGeneration (valuesMatrix, neighborsSizeX, neighborsSizeY);
