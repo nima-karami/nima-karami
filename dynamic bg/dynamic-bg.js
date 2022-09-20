@@ -91,10 +91,6 @@ function drawRect(x, y, w, h, color) {
 
 // Draw image on canvas
 function drawImageOnCanvas(x, y, w, h, img) {
-    img.addEventListener('load', (e) => {
-        ctx.drawImage(img, x, y, w, h);
-      });
-    
     ctx.drawImage(img, x, y, w, h);
 }
 
@@ -264,6 +260,7 @@ function matrixToGrid(matrix) {
     let valueList = matrixToList (matrix);
     let style = styles[styleIndex];
     let color = '';
+    let hatch, gradient, halfCircle, triangle, brick ;
     console.log(matrix);
     // console.log(canvasWidth, canvasHeight);
     
@@ -286,23 +283,23 @@ function matrixToGrid(matrix) {
                     drawFullCircle(radius + i * pixelWidth, radius + j * pixelHeight, radius*0.9, color);
                     break;
                 case 'hatch':
-                    let hatch = hatchArr[valueList[i + rowCount*j]];
+                    hatch = hatchArr[valueList[i + columnCount*j]];
                     drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, hatch);
                     break;
                 case 'triangle':
-                    let triangle = triangleArr[valueList[i + rowCount*j]];
+                    triangle = triangleArr[valueList[i + columnCount*j]];
                     drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth+1, pixelHeight+1, triangle);
                     break;
                 case 'gradient':
-                    let gradient = gradientArr[valueList[i + rowCount*j]];
+                    gradient = gradientArr[valueList[i + columnCount*j]];
                     drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, gradient);
                     break;
                 case 'half-circle':
-                    let halfCircle = halfCircleArr[valueList[i + rowCount*j]];
+                    halfCircle = halfCircleArr[valueList[i + columnCount*j]];
                     drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, halfCircle);
                     break;
                 case 'brick':
-                    let brick = brickArr[valueList[i + rowCount*j]];
+                    brick = brickArr[valueList[i + columnCount*j]];
                     drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth+1, pixelHeight, brick);
                     break;
             }
@@ -473,8 +470,8 @@ function togglePlay() {
 
 function randomize(mutate = true) {
     
-    columnCount = getRandomInt(20, 120);
-    rowCount = getRandomInt(20, 80);
+    columnCount = getRandomInt(20, 200);
+    rowCount = getRandomInt(20, 120);
     variance = getRandomInt(1, 9);
     iteration = 0;
     neighborsSizeX = getRandomInt(0, 3);
