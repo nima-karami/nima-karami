@@ -424,7 +424,7 @@ function randomize(mutate = true) {
     
     columnCount = getRandomInt(20, 200);
     rowCount = getRandomInt(20, 120);
-    variance = getRandomInt(1, 9);
+    variance = getRandomInt(1, 8);
     iteration = 0;
     neighborsSizeX = getRandomInt(0, 3);
     neighborsSizeY = getRandomInt(0, 3);
