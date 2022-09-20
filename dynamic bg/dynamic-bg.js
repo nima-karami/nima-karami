@@ -12,12 +12,14 @@ var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
 // add more styles 'stripe', 'color', , 'frame', , 'brick'
-var styles = ['rectangle', 'circle', 'hatch', 'triangle'] ;
+var styles = ['rectangle', 'circle', 'hatch', 'triangle', 'gradient', 'half-circle'] ;
 var styleIndex = 0;
 
 var colorArr1 = ["white", "black", "#ffc700", "#ff4040", "#40a3ff", "orange", "purple", "pink", "grey", "red"];
 const hatchArr = document.getElementsByClassName('pattern-hatch');
 const triangleArr = document.getElementsByClassName('pattern-triangle');
+const gradientArr = document.getElementsByClassName('pattern-gradient');
+const halfCircleArr = document.getElementsByClassName('pattern-half-circle');
 
 console.log(hatchArr);
 
@@ -104,8 +106,8 @@ function varianceArrToColors(arr) {
 
 // Reset the variables to default
 function reset() {
-    columnCount = 11; //51
-    rowCount = 11; //81
+    columnCount = 41; //51
+    rowCount = 21; //81
     variance = 4;
     iteration = 0;
     neighborsSizeX = 1;
@@ -288,6 +290,14 @@ function matrixToGrid(matrix) {
                 case 'triangle':
                     let triangle = triangleArr[valueList[i + rowCount*j]];
                     drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth+1, pixelHeight+1, triangle);
+                    break;
+                case 'gradient':
+                    let gradient = gradientArr[valueList[i + rowCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, gradient);
+                    break;
+                case 'half-circle':
+                    let halfCircle = halfCircleArr[valueList[i + rowCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, halfCircle);
                     break;
             }
                                     
