@@ -12,9 +12,14 @@ var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
 // add more styles 'stripe', 'color', , 'frame', , 'brick'
-var styles = ['rectangle', 'circle'];
-var colorArr1 = ["white", "black", "#ffc700", "#ff4040", "#40a3ff", "orange", "purple", "pink", "grey", "red"];
+var styles = ['rectangle', 'circle', 'hatch', 'triangle'] ;
 var styleIndex = 0;
+
+var colorArr1 = ["white", "black", "#ffc700", "#ff4040", "#40a3ff", "orange", "purple", "pink", "grey", "red"];
+const hatchArr = document.getElementsByClassName('pattern-hatch');
+const triangleArr = document.getElementsByClassName('pattern-triangle');
+
+console.log(hatchArr);
 
 // Repeating function
 var intervalId = window.setInterval(function () {
@@ -80,28 +85,15 @@ function drawRect(x, y, w, h, color) {
     ctx.fillRect(x, y, w, h);
 }
 
-// Draw hatch on canvas, needs to be replaced with SVG 
-function drawHatch() {
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-        var x = 0;
-        var y = 0;
-        var width = 40;
-        var height = 40;
-        var count = 5;
-        var offset = width/count;
-        ctx.strokeStyle = "#black";
-        ctx.lineWidth=2;
-        ctx.beginPath();
-
-        for (let i = 0; i < count; i++) {
-            
-            ctx.moveTo(x+i*offset+1,y);
-            ctx.lineTo(x+i*offset+1,y+height);
-
-        }
-        
-        ctx.stroke();
+// Draw image on canvas
+function drawImageOnCanvas(x, y, w, h, img) {
+    img.addEventListener('load', (e) => {
+        ctx.drawImage(img, x, y, w, h);
+      });
+    
+    ctx.drawImage(img, x, y, w, h);
 }
+
 
 function varianceArrToColors(arr) {
     
@@ -274,6 +266,7 @@ function matrixToGrid(matrix) {
     // Clear canvas
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     
+   
     // Draw new shapes
     for (let j = 0; j < rowCount; j++) {
         for (let i = 0; i < columnCount; i++) {
@@ -288,7 +281,13 @@ function matrixToGrid(matrix) {
                     let radius = Math.min(pixelHeight, pixelWidth)/2;
                     drawFullCircle(radius + i * pixelWidth, radius + j * pixelHeight, radius*0.9, color);
                     break;
-                case 'stripe':
+                case 'hatch':
+                    let hatch = hatchArr[valueList[i + rowCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, hatch);
+                    break;
+                case 'triangle':
+                    let triangle = triangleArr[valueList[i + rowCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth+1, pixelHeight+1, triangle);
                     break;
             }
                                     
@@ -296,6 +295,7 @@ function matrixToGrid(matrix) {
 
         
     }
+    
     
 
 }
@@ -366,7 +366,7 @@ function matrixToGrid_obsolete(matrix) {
  
 function addVariance() {
     pausePlay();
-    if (variance <9) {
+    if (variance < 8) {
         variance += 1;
         refreshGrid()
     }
