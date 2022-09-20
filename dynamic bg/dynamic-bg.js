@@ -1,7 +1,9 @@
 // Initiate variables
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
 var columnCount = 0;
 var rowCount = 0;
-var shapeCount = 0;
+var variance = 0;
 var iteration = 0;
 const multiplier = 10;
 var showValues = false;
@@ -9,8 +11,18 @@ var autoPlay = false;
 var valuesMatrix = [[]];
 var neighborsSizeX = 1;
 var neighborsSizeY = 1;
-var styles = ['stripe', 'color', 'rectangle', 'frame', 'circle', 'brick'];
+// add more styles 'stripe', 'color', , 'frame', , 'brick'
+var styles = ['rectangle', 'hatch', 'circle',  'triangle', 'gradient', 'half-circle', 'brick'] ;
 var styleIndex = 0;
+
+var colorArr1 = ["white", "black", "#ffc700", "#ff4040", "#40a3ff", "orange", "purple", "pink", "grey", "red"];
+const hatchArr = document.getElementsByClassName('pattern-hatch');
+const triangleArr = document.getElementsByClassName('pattern-triangle');
+const gradientArr = document.getElementsByClassName('pattern-gradient');
+const halfCircleArr = document.getElementsByClassName('pattern-half-circle');
+const brickArr = document.getElementsByClassName('pattern-brick');
+
+console.log(hatchArr);
 
 // Repeating function
 var intervalId = window.setInterval(function () {
@@ -20,6 +32,8 @@ var intervalId = window.setInterval(function () {
         }
     }, 3000);
 
+window.onresize = () => {resizeCanvasToDisplaySize(c); reset()};
+
 let testMatrix = [
     [0, 1, 0, 3, 5],
     [1, 1, 0, 3, 4],
@@ -27,25 +41,58 @@ let testMatrix = [
     [0, 1, 0, 3, 5],
 ]
 
-// Refer to shape-style.css
-var shapeList = [
-    '<div class ="shape">0</div>',
-    '<div class ="shape">1</div>',
-    '<div class ="shape">2</div>',
-    '<div class ="shape">3</div>',
-    '<div class ="shape">4</div>',
-    '<div class ="shape">5</div>',
-    '<div class ="shape">6</div>',
-    '<div class ="shape">7</div>',
-    '<div class ="shape">8</div>',
-    '<div class ="shape">9</div>'
-    ]
+// Make sure the canvas is 1:1
+function resizeCanvasToDisplaySize(canvas) {
+    // look up the size the canvas is being displayed
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    
+    // If it's resolution does not match change it
+    if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+        return true;
+    }
+    
+    return false;
+}
+
+resizeCanvasToDisplaySize(c);
+
+
+// Draw circle on canvas
+function drawFullCircle(x, y, r, color) {
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
+}
+
+// Draw rectangle on canvas
+function drawRect(x, y, w, h, color) {
+    ctx.fillStyle = color;
+    ctx.fillStyle = color;
+    ctx.fillRect(x, y, w, h);
+}
+
+// Draw image on canvas
+function drawImageOnCanvas(x, y, w, h, img) {
+    ctx.drawImage(img, x, y, w, h);
+}
+
+
+function varianceArrToColors(arr) {
+    
+}
+
+
+
 
 // Reset the variables to default
 function reset() {
-    columnCount = 101; //51
-    rowCount = 31; //81
-    shapeCount = 4;
+    columnCount = 71; //51
+    rowCount = 41; //81
+    variance = 4;
     iteration = 0;
     neighborsSizeX = 1;
     neighborsSizeY = 1;
@@ -63,7 +110,7 @@ function changeStyle() {
     else {
         styleIndex += 1
     }
-
+    
     matrixToGrid (valuesMatrix);
 }
 
@@ -79,7 +126,7 @@ function generateDirections (m, n) {
     let columnCount = n*2+1;
 
     for (let i = 0; i < rowCount; i++) {
-        let matrixRow = [];
+        
         for (let j = 0; j < columnCount; j++) {
             newI = i - m;
             newJ = j - n;
@@ -184,41 +231,74 @@ function matrixToList (matrix) {
         }
     return list;
 }
- 
-// Draw a grid based on the input matrix of colors 
+ // Draw a grid based on the input matrix of colors 
 function matrixToGrid(matrix) {
+    
     let rowCount = matrix.length;
     let columnCount = matrix[0].length;
     let gridCount = columnCount*rowCount;
-    let gridHTML = "";
-    let gridCSSColumns = "";
-    let gridCSSRows = "";
-    let value = 0;
+    let canvasWidth = c.width;
+    let canvasHeight = c.height;
+    let pixelWidth = canvasWidth/columnCount;
+    let pixelHeight = canvasHeight/rowCount;
+    let marginTop = 2.5;
+    let marginLeft = 2.5;
     let valueList = matrixToList (matrix);
+    let style = styles[styleIndex];
+    let color = '';
+    let hatch, gradient, halfCircle, triangle, brick ;
+    console.log(matrix);
+    // console.log(canvasWidth, canvasHeight);
     
-    // Generate the HTML code
-    for (let i = 0; i < gridCount; i++) {
-        value = valueList[i] ;
-        gridHTML += `<div id = pixel-${i} class = "grid-item ${styles[styleIndex]}-${value}"> ${shapeList[value]} </div>`;
-    }
-        
-    // Generate the CSS code | Column style
-    for (let i = 0; i < columnCount; i++) {
-        gridCSSColumns += "auto ";
-    }
+    // Clear canvas
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    
+   
+    // Draw new shapes
+    for (let j = 0; j < rowCount; j++) {
+        for (let i = 0; i < columnCount; i++) {
+            
+            switch(style) {
+                case 'rectangle':
+                    color = colorArr1[valueList[i + columnCount*j]];    
+                    drawRect(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, color);
+                    break;
+                case 'circle':
+                    color = colorArr1[valueList[i + columnCount*j]];      
+                    let radius = Math.min(pixelHeight, pixelWidth)/2;
+                    drawFullCircle(radius + i * pixelWidth, radius + j * pixelHeight, radius*0.9, color);
+                    break;
+                case 'hatch':
+                    hatch = hatchArr[valueList[i + columnCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, hatch);
+                    break;
+                case 'triangle':
+                    triangle = triangleArr[valueList[i + columnCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth+1, pixelHeight+1, triangle);
+                    break;
+                case 'gradient':
+                    gradient = gradientArr[valueList[i + columnCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, gradient);
+                    break;
+                case 'half-circle':
+                    halfCircle = halfCircleArr[valueList[i + columnCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth, pixelHeight, halfCircle);
+                    break;
+                case 'brick':
+                    brick = brickArr[valueList[i + columnCount*j]];
+                    drawImageOnCanvas(marginLeft + i * pixelWidth, marginTop + j * pixelHeight, pixelWidth+1, pixelHeight, brick);
+                    break;
+            }
+                                    
+        } 
 
-    // Generate the CSS code | Row style
-    for (let i = 0; i < rowCount; i++) {
-        gridCSSRows += "auto ";
-    }
         
-    // Insert the HTML and CSS codes
-    document.getElementById("my-grid").innerHTML = gridHTML;
-    document.getElementById("my-grid").style.gridTemplateColumns = gridCSSColumns;
-    document.getElementById("my-grid").style.gridTemplateRows = gridCSSRows;
+    }
+    
+    
 
 }
- 
+
  // FUNCTIONS TO USE AS BUTTON ON THE PAGE 
  
  function addColumn() {
@@ -251,16 +331,16 @@ function matrixToGrid(matrix) {
  
 function addVariance() {
     pausePlay();
-    if (shapeCount <9) {
-        shapeCount += 1;
+    if (variance < 8) {
+        variance += 1;
         refreshGrid()
     }
 }
  
 function removeVariance() {
     pausePlay();
-    if (shapeCount > 1) {
-        shapeCount -= 1;
+    if (variance > 1) {
+        variance -= 1;
         refreshGrid()
     }
 }
@@ -340,17 +420,17 @@ function togglePlay() {
 }
 
 
-async function randomize(mutate = true) {
+function randomize(mutate = true) {
     
     columnCount = getRandomInt(20, 200);
-    rowCount = getRandomInt(20, 200);
-    shapeCount = getRandomInt(1, 9);
+    rowCount = getRandomInt(20, 120);
+    variance = getRandomInt(1, 9);
     iteration = 0;
-    neighborsSizeX = getRandomInt(0, 4);
-    neighborsSizeY = getRandomInt(0, 4);
+    neighborsSizeX = getRandomInt(0, 3);
+    neighborsSizeY = getRandomInt(0, 3);
     styleIndex = getRandomInt(0, styles.length-1);
     // console.log('before generateRandomMatrix');
-    valuesMatrix = await generateRandomMatrix (rowCount, columnCount, shapeCount);
+    valuesMatrix = generateRandomMatrix (rowCount, columnCount, variance);
 
     if (getRandomInt(0,1) && mutate) {
         valuesMatrix = nextGeneration (valuesMatrix, neighborsSizeX, neighborsSizeY);
@@ -382,7 +462,9 @@ function isOutOfViewport(element) {
 
 // Generate a new matrix and reload
 function refreshGrid() {
-    valuesMatrix = generateRandomMatrix (rowCount, columnCount, shapeCount);
+    // Clear canvas
+    ctx.clearRect(0, 0, c.width, c.height);
+    valuesMatrix = generateRandomMatrix (rowCount, columnCount, variance);
     matrixToGrid (valuesMatrix);
 }
 
